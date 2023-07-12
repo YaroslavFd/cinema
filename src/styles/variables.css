@@ -9,18 +9,7 @@
   --grey-color: #585858;
   --yellow-color: #e2b33a;
   --lightgrey-color: #949494;
-  --button-hover: #ffe9e2;
+  --outline-button-hover: #ffe9e2;
   --form-title-color: #704e4e;
   --success-color: #44c341;
-
-  --fz-title-big: 32px;
-  --fz-title-md: 24px;
-  --fz-title-sm: 20px;
-  --fz-text: 24px;
-  --fz-small: 14px;
-
-  --gap-big: 64px;
-  --gap-md: 40px;
-  --gap-main: 24px;
-  --gap-sm: 12px;
 }

@@ -1,0 +1,40 @@
+.button {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 31px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--white-color);
+  font-size: 18px;
+  font-weight: 500;
+
+  transition: background-color 0.2s ease, border 0.2s ease;
+
+  &.accent {
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+
+    &:hover {
+      border: 2px solid var(--accent-hover);
+      background-color: var(--accent-hover);
+    }
+
+    &:active {
+      border: 2px solid var(--accent-selected);
+      background-color: var(--accent-selected);
+    }
+  }
+
+  &.outline {
+    border: 1px solid var(--main-color);
+
+    color: var(--main-color);
+
+    &:hover {
+      background-color: var(--outline-button-hover);
+    }
+  }
+}

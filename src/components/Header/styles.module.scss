@@ -1,0 +1,18 @@
+.header {
+  padding: 24px 0;
+  margin-bottom: 24px;
+  .wrapper {
+    max-width: 1070px;
+    padding: 0 15px;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button {
+    max-width: 120px;
+    padding: 9px 40px;
+  }
+}

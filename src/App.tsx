@@ -1,12 +1,13 @@
 import React from 'react'
 
+import { Header } from './components/Header'
+import { HomePage } from './pages/HomePage'
+
 export const App = () => (
-  <div>
-    <h2 className="test">App</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde, doloribus provident magnam
-      doloremque consequatur amet ex maiores minima enim inventore nulla eos quis ab aliquam hic
-      voluptate eum iusto repudiandae.
-    </p>
+  <div className="wrapper">
+    <Header />
+    <main className="content">
+      <HomePage />
+    </main>
   </div>
 )

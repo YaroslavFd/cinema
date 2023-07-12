@@ -4,5 +4,13 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--main-color);
   line-height: 1.25;
+}
+
+.container {
+  max-width: 1070px;
+  padding: 0 15px;
+  margin: 0 auto;
 }
