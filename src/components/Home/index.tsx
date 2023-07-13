@@ -5,7 +5,7 @@ import { FilmCard } from '../FilmCard'
 import styles from './styles.module.scss'
 
 export const Home: React.FC = () => (
-  <>
+  <div>
     <h1 className={styles.title}>
       АФИША
       <p>
@@ -21,5 +21,5 @@ export const Home: React.FC = () => (
       <FilmCard />
       <FilmCard />
     </div>
-  </>
+  </div>
 )

@@ -1,0 +1,14 @@
+.rating {
+  .stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 5px;
+  }
+
+  p {
+    margin: 0;
+    color: var(--yellow-color);
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
