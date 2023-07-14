@@ -1,11 +1,9 @@
 import React from 'react'
 
-import { FilmInfoBlock } from '../components/FilmInfoBlock'
+import { FilmInfo } from '../components/FilmInfo'
 
 export const FilmInfoPage: React.FC = () => (
   <section className="section film-info-section">
-    <div className="container">
-      <FilmInfoBlock />
-    </div>
+    <FilmInfo />
   </section>
 )
