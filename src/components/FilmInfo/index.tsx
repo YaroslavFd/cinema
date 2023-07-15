@@ -1,29 +1,51 @@
-import { useQuery } from '@tanstack/react-query'
 import React from 'react'
-import { useParams } from 'react-router-dom'
 
-import { PosterFilmsService } from '../../utils/api/PosterFilmsService'
-import { FilmInfoComponent } from './FilmInfoComponent'
+import { FilmRating } from '../../UI/FilmRating'
+import { convertRatingToRussian } from '../../utils/convertRatingToRussian'
+import { getReleaseYear } from '../../utils/getReleaseYear'
+import { Film } from '../../utils/types/Film'
+import { Description } from './Description'
+import { Directors } from './Directors'
 
-export const FilmInfo: React.FC = () => {
-  const { id } = useParams()
+import styles from './styles.module.scss'
 
-  if (!Number(id)) {
-    return <div>Error</div>
-  }
+interface IFilmInfoProps {
+  film: Film
+}
 
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ['film'],
-    queryFn: () => PosterFilmsService.getFilm(String(id))
-  })
+export const FilmInfo: React.FC<IFilmInfoProps> = ({ film }) => {
+  const { name, ageRating, img, genres, country, releaseDate, userRatings, description, directors } =
+    film
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
+  // При адаптиве сделать блок картинки под рейтингом и изначально скрыть его, потом показать
+  // При адаптиве сделать блок картинки под рейтингом и изначально скрыть его, потом показать
+  // При адаптиве сделать блок картинки под рейтингом и изначально скрыть его, потом показать
 
-  if (isError) {
-    return <div>Error</div>
-  }
-
-  return <FilmInfoComponent film={data.film} />
+  return (
+    <div className={styles.wrapper}>
+      <div>
+        <div
+          className={styles.boxImg}
+          style={{
+            backgroundImage: `url('https://shift-backend.onrender.com${img}')`
+          }}
+        ></div>
+        <div className={styles.date}>
+          <span>в прокате</span> с 1 июня по 14 июня
+        </div>
+      </div>
+      <div>
+        <h2 className={styles.title}>
+          {name}{' '}
+          {convertRatingToRussian(ageRating) !== 'Error' && `(${convertRatingToRussian(ageRating)})`}
+        </h2>
+        <Directors directors={directors} />
+        <span className={styles.smallInfo}>
+          {genres.join(', ')}, {!!country && `${country.name}, `} {getReleaseYear(releaseDate)}{' '}
+        </span>
+        <FilmRating className={styles.rating} rating={userRatings.kinopoisk} />
+        <Description text={description} />
+      </div>
+    </div>
+  )
 }
