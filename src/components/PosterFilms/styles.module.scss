@@ -2,6 +2,7 @@
   margin: 0;
   margin-bottom: 32px;
   color: var(--accent-color);
+  text-transform: uppercase;
   text-align: center;
   font-size: 72px;
   font-weight: 500;
@@ -29,6 +30,7 @@
     color: var(--grey-color);
     font-size: 32px;
     line-height: 36px;
+    text-transform: none;
     -webkit-text-stroke: 0;
     letter-spacing: 0;
 

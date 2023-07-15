@@ -17,6 +17,10 @@ export const FilmInfoComponent: React.FC<IFilmInfoComponentProps> = ({ film }) =
   const { name, ageRating, img, genres, country, releaseDate, userRatings, description, directors } =
     film
 
+  // При адаптиве сделать блок картинки под рейтингом и изначально скрыть его, потом показать
+  // При адаптиве сделать блок картинки под рейтингом и изначально скрыть его, потом показать
+  // При адаптиве сделать блок картинки под рейтингом и изначально скрыть его, потом показать
+
   return (
     <div className={styles.wrapper}>
       <div>

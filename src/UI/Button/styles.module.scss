@@ -28,6 +28,21 @@
     }
   }
 
+  &.accentDull {
+    border: 2px solid var(--accent-dull-color);
+    background-color: var(--accent-dull-color);
+
+    &:hover {
+      border: 2px solid var(--accent-color);
+      background-color: var(--accent-color);
+    }
+
+    &:active {
+      border: 2px solid var(--accent-selected);
+      background-color: var(--accent-selected);
+    }
+  }
+
   &.outline {
     border: 1px solid var(--main-color);
 

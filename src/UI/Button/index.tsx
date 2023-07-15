@@ -25,6 +25,7 @@ export const Button: React.FC<IButtonProps> = ({
   <button
     className={cn(styles.button, className, {
       [styles.accent]: appearance === 'accent',
+      [styles.accentDull]: appearance === 'accent-dull',
       [styles.outline]: appearance === 'outline'
     })}
     type={type}
