@@ -2,6 +2,7 @@ import { useQueries } from '@tanstack/react-query'
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
+import { ChoiceFilmTickets } from '../components/ChoiceFilmTickets'
 import { FilmInfo } from '../components/FilmInfo'
 import { FilmSchedule } from '../components/FilmSchedule'
 import { PosterFilmsService } from '../utils/api/PosterFilmsService'
@@ -46,6 +47,7 @@ export const FilmInfoPage: React.FC = () => {
     <section className="section film-info-section">
       {filmData && <FilmInfo film={filmData.film} />}
       {scheduleData && <FilmSchedule schedules={scheduleData.schedules} />}
+      <ChoiceFilmTickets />
     </section>
   )
 }

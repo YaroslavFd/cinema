@@ -1,7 +1,8 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { FilmSchedule } from '../../../utils/types/FilmSchedule'
+import { useTicketsStore } from '../../../store'
+import { FilmSchedule, FilmSeance } from '../../../utils/types/FilmSchedule'
 
 import styles from './styles.module.scss'
 
@@ -20,9 +21,15 @@ export const ScheduleList: React.FC<IScheduleListProps> = ({ currentSchedule }) 
     name: null
   })
 
-  const activeTimeHandler = (time: string, name: string) => {
-    setActiveTime({ time, name })
+  const seance = useTicketsStore((state) => state.seance)
+  const addSeance = useTicketsStore((state) => state.addSeance)
+
+  const activeTimeHandler = (item: FilmSeance) => {
+    addSeance(item)
+    setActiveTime({ time: item.time, name: item.hall.name })
   }
+
+  console.log(seance)
 
   return (
     <div className={styles.wrapper}>
@@ -33,7 +40,7 @@ export const ScheduleList: React.FC<IScheduleListProps> = ({ currentSchedule }) 
           if (item.hall.name === 'Red')
             return (
               <button
-                onClick={() => activeTimeHandler(item.time, item.hall.name)}
+                onClick={() => activeTimeHandler(item)}
                 className={cn(styles.btn, styles.btnRed, activeStyle)}
                 key={i}
                 type="button"
@@ -51,7 +58,7 @@ export const ScheduleList: React.FC<IScheduleListProps> = ({ currentSchedule }) 
           if (item.hall.name === 'Blue')
             return (
               <button
-                onClick={() => activeTimeHandler(item.time, item.hall.name)}
+                onClick={() => activeTimeHandler(item)}
                 className={cn(styles.btn, styles.btnBlue, activeStyle)}
                 key={i}
                 type="button"
@@ -69,7 +76,7 @@ export const ScheduleList: React.FC<IScheduleListProps> = ({ currentSchedule }) 
           if (item.hall.name === 'Green')
             return (
               <button
-                onClick={() => activeTimeHandler(item.time, item.hall.name)}
+                onClick={() => activeTimeHandler(item)}
                 className={cn(styles.btn, styles.btnGreen, activeStyle)}
                 key={i}
                 type="button"

@@ -1,0 +1,75 @@
+.wrapper {
+  width: 100%;
+  max-width: 245px;
+  padding: 20px 24px;
+  border-radius: 16px;
+  border: 4px dashed var(--pale-lavender-blue);
+
+  h3 {
+    margin: 0;
+    margin-bottom: 20px;
+    color: var(--grey-color);
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .infoList {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    .infoItem {
+      list-style-type: none;
+      h4 {
+        margin: 0;
+        margin-bottom: 4px;
+        color: var(--accent-dull-color);
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 28px;
+        letter-spacing: 0.24px;
+      }
+
+      p {
+        margin: 0;
+        color: var(--grey-color);
+        font-size: 20px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .payment {
+    text-align: right;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0px;
+      left: -24px;
+      right: -24px;
+      border-top: 4px dashed var(--pale-lavender-blue);
+    }
+
+    h4 {
+      margin: 0;
+      margin-bottom: 12px;
+      padding-top: 12px;
+      color: var(--grey-color);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 28px;
+      letter-spacing: 0.24px;
+
+      span {
+        display: block;
+        margin-top: 4px;
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+  }
+}

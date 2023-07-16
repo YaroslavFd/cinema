@@ -1,0 +1,32 @@
+.seat {
+  cursor: pointer;
+  width: 100%;
+  max-width: 28px;
+  height: 36px;
+  border: 2px solid var(--grey-color);
+  border-radius: 7px;
+
+  transition: border 0.2s ease;
+
+  &.comfort {
+    border: 2px solid var(--yellow-color);
+  }
+
+  &:hover {
+    border: 2px solid var(--accent-selected);
+  }
+
+  &.taken {
+    border: 2px solid var(--pale-lavender-blue);
+    background-color: var(--pale-lavender-blue);
+
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  &.chosen {
+    border: 2px solid var(--accent-selected);
+    background-color: var(--accent-selected);
+  }
+}

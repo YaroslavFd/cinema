@@ -1,6 +1,13 @@
+type SeancePlaceType = 'COMFORT' | 'ECONOM' | 'BLOCKED'
+
+export interface FilmSeancePlace {
+  price: number
+  type: SeancePlaceType
+}
+
 export interface FilmSeanceHall {
   name: string
-  places: string[]
+  places: FilmSeancePlace[][]
 }
 
 export interface FilmSeanceTime {

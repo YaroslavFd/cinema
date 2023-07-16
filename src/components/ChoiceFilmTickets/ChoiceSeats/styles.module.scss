@@ -1,0 +1,41 @@
+.wrapper {
+  max-width: 720px;
+  height: 100%;
+  border-radius: 16px;
+  border: 2px solid var(--lightgrey-color);
+
+  .top {
+    padding: 14px;
+    border-radius: 16px 16px 0px 0px;
+    background: var(--pale-lavender-blue);
+
+    color: var(--grey-color);
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .choiceSeats {
+    padding: 30px 25px;
+    background-color: var(--white-color);
+    border-radius: 16px;
+    border: 1px solid var(--yellow-color);
+
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    .seats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      .row {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+      }
+    }
+  }
+}

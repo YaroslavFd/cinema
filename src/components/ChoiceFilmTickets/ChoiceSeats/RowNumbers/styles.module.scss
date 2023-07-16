@@ -1,0 +1,21 @@
+.wrapper {
+  transform: translateY(5px);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: var(--accent-color);
+
+    color: var(--white-color);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+}
