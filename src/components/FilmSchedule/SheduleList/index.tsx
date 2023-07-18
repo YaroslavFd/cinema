@@ -1,13 +1,16 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { useTicketsStore } from '../../../store'
+import { useOrderTicketsStore } from '../../../store/orderTickets'
+import { useSeanceStore } from '../../../store/seance'
+import { Film } from '../../../utils/types/Film'
 import { FilmSchedule, FilmSeance } from '../../../utils/types/FilmSchedule'
 
 import styles from './styles.module.scss'
 
 interface IScheduleListProps {
   currentSchedule: FilmSchedule
+  film: Film
 }
 
 type activeTimeType = {
@@ -15,21 +18,30 @@ type activeTimeType = {
   name: string | null
 }
 
-export const ScheduleList: React.FC<IScheduleListProps> = ({ currentSchedule }) => {
+export const ScheduleList: React.FC<IScheduleListProps> = ({ currentSchedule, film }) => {
   const [activeTime, setActiveTime] = React.useState<activeTimeType>({
     time: null,
     name: null
   })
 
-  const seance = useTicketsStore((state) => state.seance)
-  const addSeance = useTicketsStore((state) => state.addSeance)
+  const addSeance = useSeanceStore((state) => state.addSeance)
+
+  const addInitialTicketInfo = useOrderTicketsStore((state) => state.addInitialTicketInfo)
+  const resetChosenSeats = useOrderTicketsStore((state) => state.resetChosenSeats)
 
   const activeTimeHandler = (item: FilmSeance) => {
     addSeance(item)
+    addInitialTicketInfo({
+      id: film.id,
+      ageRating: film.ageRating,
+      date: currentSchedule.date,
+      time: item.time,
+      hallName: item.hall.name,
+      title: film.name
+    })
     setActiveTime({ time: item.time, name: item.hall.name })
+    resetChosenSeats()
   }
-
-  console.log(seance)
 
   return (
     <div className={styles.wrapper}>

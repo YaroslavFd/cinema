@@ -1,3 +1,5 @@
+export type AgeRatingType = 'R' | 'NC17' | 'G' | 'PG' | 'PG13'
+
 export type Film = {
   id: string
   name: string
@@ -19,7 +21,7 @@ export type Film = {
     }
   ]
   runtime: number
-  ageRating: 'R' | 'NC17' | 'G' | 'PG' | 'PG13'
+  ageRating: AgeRatingType
   genres: Array<string>
   userRatings: {
     kinopoisk: string

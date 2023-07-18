@@ -46,7 +46,9 @@ export const FilmInfoPage: React.FC = () => {
   return (
     <section className="section film-info-section">
       {filmData && <FilmInfo film={filmData.film} />}
-      {scheduleData && <FilmSchedule schedules={scheduleData.schedules} />}
+      {scheduleData && filmData && (
+        <FilmSchedule schedules={scheduleData.schedules} film={filmData.film} />
+      )}
       <ChoiceFilmTickets />
     </section>
   )

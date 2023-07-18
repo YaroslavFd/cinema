@@ -1,11 +1,25 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { FilmSeancePlace } from '../../../../utils/types/FilmSchedule'
+import { useOrderTicketsStore } from '../../../../store/orderTickets'
+import { SeancePlaceType } from '../../../../utils/types/FilmSchedule'
 
 import styles from './styles.module.scss'
 
-export const Seat: React.FC<FilmSeancePlace> = ({ price, type }) => {
+interface ISeatProps {
+  price: number
+  type: SeancePlaceType
+  rowNum: number
+  seatNum: number
+}
+
+export const Seat: React.FC<ISeatProps> = ({ price, type, rowNum, seatNum }) => {
+  const chosenSeats = useOrderTicketsStore((state) => state.chosenSeats)
+  const addSeats = useOrderTicketsStore((state) => state.addSeats)
+  const ticketPrice = useOrderTicketsStore((state) => state.price)
+
+  const typeTitle = type === 'COMFORT' ? 'комфорт' : 'эконом'
+
   let seatType = styles.comfort
 
   switch (type) {
@@ -19,5 +33,30 @@ export const Seat: React.FC<FilmSeancePlace> = ({ price, type }) => {
       seatType = ''
       break
   }
-  return <div className={cn(styles.seat, seatType)}></div>
+
+  const seatClickHandler = (type: SeancePlaceType) => {
+    if (type !== 'BLOCKED') {
+      addSeats({ row: rowNum, column: seatNum, price })
+    }
+  }
+
+  const isActiveSeat = chosenSeats.some(
+    (activeSeat) => activeSeat.row === rowNum && activeSeat.column === seatNum
+  )
+
+  return (
+    <div
+      className={cn(styles.seat, seatType, isActiveSeat ? styles.chosen : null)}
+      onClick={() => seatClickHandler(type)}
+    >
+      <div className={styles.popup}>
+        <span className={styles.popupSeatType}>{typeTitle}</span>
+        <div className={styles.seatNums}>
+          <span>{rowNum} ряд</span>
+          <span>{seatNum} место</span>
+        </div>
+        <span className={styles.price}>{price}р</span>
+      </div>
+    </div>
+  )
 }

@@ -18,12 +18,12 @@ export const Button: React.FC<IButtonProps> = ({
   className = '',
   appearance = 'accent',
   onClick,
-  disabled = false,
   isIcon = false,
+  disabled = false,
   children
 }) => (
   <button
-    className={cn(styles.button, className, {
+    className={cn(styles.button, className, disabled ? styles.disabled : '', {
       [styles.accent]: appearance === 'accent',
       [styles.accentDull]: appearance === 'accent-dull',
       [styles.outline]: appearance === 'outline'
