@@ -16,7 +16,6 @@ interface ISeatProps {
 export const Seat: React.FC<ISeatProps> = ({ price, type, rowNum, seatNum }) => {
   const chosenSeats = useOrderTicketsStore((state) => state.chosenSeats)
   const addSeats = useOrderTicketsStore((state) => state.addSeats)
-  const ticketPrice = useOrderTicketsStore((state) => state.price)
 
   const typeTitle = type === 'COMFORT' ? 'комфорт' : 'эконом'
 
