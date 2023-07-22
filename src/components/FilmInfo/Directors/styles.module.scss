@@ -1,4 +1,10 @@
-.director {
+.directors {
   font-size: 24px;
   text-align: justify;
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+    line-height: 20px;
+    text-align: left;
+  }
 }

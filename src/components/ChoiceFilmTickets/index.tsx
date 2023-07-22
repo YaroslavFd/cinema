@@ -13,10 +13,12 @@ export const ChoiceFilmTickets: React.FC = () => {
   return (
     <>
       <div className={styles.content}>
-        <ChoiceSeats />
+        <div className={styles.choiceSeatsBox}>
+          <ChoiceSeats />
+          {initialTicketInfo && <SeatsInformation />}
+        </div>
         {initialTicketInfo && <TicketsOrder ticketInfo={initialTicketInfo} />}
       </div>
-      <SeatsInformation />
     </>
   )
 }

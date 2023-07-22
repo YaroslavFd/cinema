@@ -23,9 +23,9 @@ export const FilmInfo: React.FC<IFilmInfoProps> = ({ film }) => {
 
   return (
     <div className={styles.wrapper}>
-      <div>
+      <div className={styles.boxImg}>
         <div
-          className={styles.boxImg}
+          className={styles.img}
           style={{
             backgroundImage: `url('https://shift-backend.onrender.com${img}')`
           }}
@@ -34,7 +34,7 @@ export const FilmInfo: React.FC<IFilmInfoProps> = ({ film }) => {
           <span>в прокате</span> с 1 июня по 14 июня
         </div>
       </div>
-      <div>
+      <div className={styles.boxInfo}>
         <h2 className={styles.title}>
           {name}{' '}
           {convertRatingToRussian(ageRating) !== 'Error' && `(${convertRatingToRussian(ageRating)})`}
@@ -43,7 +43,20 @@ export const FilmInfo: React.FC<IFilmInfoProps> = ({ film }) => {
         <span className={styles.smallInfo}>
           {genres.join(', ')}, {!!country && `${country.name}, `} {getReleaseYear(releaseDate)}{' '}
         </span>
-        <FilmRating className={styles.rating} rating={userRatings.kinopoisk} />
+        <FilmRating className={styles.rating} rating={userRatings.kinopoisk}>
+          Kinopoisk
+        </FilmRating>
+        <div className={styles.mobileBoxImg}>
+          <div
+            className={styles.mobileImg}
+            style={{
+              backgroundImage: `url('https://shift-backend.onrender.com${img}')`
+            }}
+          ></div>
+          <div className={styles.date}>
+            <span>в прокате</span> с 1 июня по 14 июня
+          </div>
+        </div>
         <Description text={description} />
       </div>
     </div>

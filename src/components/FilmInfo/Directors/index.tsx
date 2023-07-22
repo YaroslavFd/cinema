@@ -13,7 +13,7 @@ interface IDirectorsProps {
 }
 
 export const Directors: React.FC<IDirectorsProps> = ({ directors }) => (
-  <div className={styles.director}>
+  <div className={styles.directors}>
     Режиссер{directors.length > 1 ? 'ы' : ''}:{' '}
     {directors.map(
       (director, index) => `${director.fullName}${index !== directors.length - 1 ? ', ' : ''}`

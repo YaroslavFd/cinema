@@ -9,6 +9,17 @@
 
   transition: border 0.2s ease;
 
+  .seatNum {
+    display: none;
+    font-size: 13px;
+    font-weight: 500;
+    transform: translate(3px, 4px);
+
+    @media (max-width: 992px) {
+      display: block;
+    }
+  }
+
   &.comfort {
     border: 2px solid var(--yellow-color);
   }
@@ -20,11 +31,20 @@
   &:hover .popup {
     visibility: visible;
     opacity: 1;
+
+    @media (max-width: 992px) {
+      visibility: hidden;
+      opacity: 0;
+    }
   }
 
   &.taken {
     border: 2px solid var(--pale-lavender-blue);
     background-color: var(--pale-lavender-blue);
+
+    span {
+      display: none;
+    }
 
     &:hover {
       cursor: default;
@@ -39,6 +59,9 @@
   &.chosen {
     border: 2px solid var(--accent-selected);
     background-color: var(--accent-selected);
+    span {
+      color: var(--white-color);
+    }
   }
 
   .popup {

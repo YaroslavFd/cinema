@@ -19,7 +19,7 @@ export const Seat: React.FC<ISeatProps> = ({ price, type, rowNum, seatNum }) => 
 
   const typeTitle = type === 'COMFORT' ? 'комфорт' : 'эконом'
 
-  let seatType = styles.comfort
+  let seatType
 
   switch (type) {
     case 'COMFORT':
@@ -48,6 +48,7 @@ export const Seat: React.FC<ISeatProps> = ({ price, type, rowNum, seatNum }) => 
       className={cn(styles.seat, seatType, isActiveSeat ? styles.chosen : null)}
       onClick={() => seatClickHandler(type)}
     >
+      <span className={styles.seatNum}>{seatNum}</span>
       <div className={styles.popup}>
         <span className={styles.popupSeatType}>{typeTitle}</span>
         <div className={styles.seatNums}>

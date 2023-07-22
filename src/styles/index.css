@@ -9,12 +9,12 @@ body {
   line-height: 1.25;
 }
 
+.content {
+  padding: 20px 0 40px;
+}
+
 .container {
   max-width: 1070px;
   padding: 0 15px;
   margin: 0 auto;
-}
-
-.film-info-section {
-  padding: 20px 0 40px;
 }

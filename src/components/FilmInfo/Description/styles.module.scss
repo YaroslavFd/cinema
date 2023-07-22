@@ -3,6 +3,12 @@
     text-align: justify;
     font-size: 24px;
 
+    @media (max-width: 767px) {
+      color: var(--main-color);
+      font-size: 20px;
+      line-height: 23px;
+    }
+
     &.hideText {
       display: none;
     }
@@ -15,5 +21,10 @@
     font-size: 24px;
     line-height: 24px;
     color: var(--lightgrey-color);
+
+    @media (max-width: 767px) {
+      font-size: 20px;
+      line-height: 22px;
+    }
   }
 }

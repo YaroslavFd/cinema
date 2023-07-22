@@ -40,7 +40,7 @@ export const FilmCard: React.FC<IFilmCardProps> = ({ film }) => {
         <p>{name}</p>
         <span>{originalName}</span>
       </h2>
-      <FilmRating rating={userRatings.kinopoisk} />
+      <FilmRating rating={userRatings.kinopoisk}>Kinopoisk</FilmRating>
       <Button className={styles.btn} onClick={onMoreInfoClick}>
         Подробнее
       </Button>

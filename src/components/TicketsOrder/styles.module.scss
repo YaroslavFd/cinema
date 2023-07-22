@@ -5,6 +5,10 @@
   border-radius: 16px;
   border: 4px dashed var(--pale-lavender-blue);
 
+  @media (max-width: 992px) {
+    max-width: 350px;
+  }
+
   h3 {
     margin: 0;
     margin-bottom: 20px;

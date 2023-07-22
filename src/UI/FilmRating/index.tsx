@@ -8,18 +8,18 @@ import styles from './styles.module.scss'
 interface IFilmRatingProps {
   className?: string
   rating: string
-  company?: 'Kinopoisk' | 'imdb'
+  children: React.ReactNode
 }
 
 export const FilmRating: React.FC<IFilmRatingProps> = ({
   className = '',
   rating,
-  company = 'Kinopoisk'
+  children
 }) => (
   <div className={cn(styles.rating, className)}>
     <div className={styles.stars}>{renderStars(rating)}</div>
     <p>
-      {company} - {rating}
+      {children} - {rating}
     </p>
   </div>
 )
