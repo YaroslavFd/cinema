@@ -16,7 +16,6 @@ export type InitialTicketInfo = {
 export type Seats = {
   row: number
   column: number
-  price: number
 }
 
 interface OrderTicketsState {
@@ -26,7 +25,7 @@ interface OrderTicketsState {
   addInitialTicketInfo: (value: InitialTicketInfo) => void
   resetOrderTicketInfo: () => void
   resetChosenSeats: () => void
-  addSeats: (seats: Seats) => void
+  addSeats: (seats: Seats, price: number) => void
 }
 
 export const useOrderTicketsStore = create<OrderTicketsState, [['zustand/immer', never]]>(
@@ -55,17 +54,17 @@ export const useOrderTicketsStore = create<OrderTicketsState, [['zustand/immer',
       })
     },
 
-    addSeats: (seats: Seats) =>
+    addSeats: (seats: Seats, price: number) =>
       set((state) => {
         const existingSeatIndex = state.chosenSeats.findIndex(
           (chosenSeat) => chosenSeat.row === seats.row && chosenSeat.column === seats.column
         )
         if (existingSeatIndex !== -1) {
           state.chosenSeats.splice(existingSeatIndex, 1)
-          state.price -= seats.price
+          state.price -= price
         } else {
           state.chosenSeats.push(seats)
-          state.price += seats.price
+          state.price += price
         }
       })
   }))

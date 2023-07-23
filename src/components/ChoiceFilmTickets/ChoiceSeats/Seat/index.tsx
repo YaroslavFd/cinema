@@ -35,7 +35,7 @@ export const Seat: React.FC<ISeatProps> = ({ price, type, rowNum, seatNum }) => 
 
   const seatClickHandler = (type: SeancePlaceType) => {
     if (type !== 'BLOCKED') {
-      addSeats({ row: rowNum, column: seatNum, price })
+      addSeats({ row: rowNum, column: seatNum }, price)
     }
   }
 

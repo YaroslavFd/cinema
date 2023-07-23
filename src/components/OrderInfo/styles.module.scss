@@ -1,0 +1,74 @@
+.wrapper {
+  max-width: 385px;
+  margin: 0 auto;
+  padding: 18px 5px 5px;
+
+  h3 {
+    margin: 0;
+    margin-bottom: 15px;
+    color: var(--grey-color);
+    text-align: center;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 32px;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    width: 65px;
+    height: 65px;
+  }
+
+  .code {
+    color: var(--grey-color);
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+
+    span {
+      display: block;
+      margin-top: 9px;
+      color: var(--yellow-color);
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 32px;
+      letter-spacing: 0.32px;
+    }
+  }
+
+  ul {
+    margin: 0;
+    margin-top: 8px;
+  }
+
+  .bottomInfo {
+    margin-top: 35px;
+    color: var(--lightgrey-color);
+    text-align: center;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+  }
+
+  .infoMessage {
+    margin: 0;
+    color: var(--grey-color);
+    text-align: center;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.2px;
+  }
+
+  .loading {
+    margin-bottom: 15px;
+    svg {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}

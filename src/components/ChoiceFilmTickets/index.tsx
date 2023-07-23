@@ -7,7 +7,11 @@ import { SeatsInformation } from './SeatsInformation'
 
 import styles from './styles.module.scss'
 
-export const ChoiceFilmTickets: React.FC = () => {
+interface IChoiceFilmTicketsProps {
+  onBuyButtonClick: () => void
+}
+
+export const ChoiceFilmTickets: React.FC<IChoiceFilmTicketsProps> = ({ onBuyButtonClick }) => {
   const initialTicketInfo = useOrderTicketsStore((state) => state.initialTicketInfo)
 
   return (
@@ -17,7 +21,9 @@ export const ChoiceFilmTickets: React.FC = () => {
           <ChoiceSeats />
           {initialTicketInfo && <SeatsInformation />}
         </div>
-        {initialTicketInfo && <TicketsOrder ticketInfo={initialTicketInfo} />}
+        {initialTicketInfo && (
+          <TicketsOrder ticketInfo={initialTicketInfo} onBuyButtonClick={onBuyButtonClick} />
+        )}
       </div>
     </>
   )

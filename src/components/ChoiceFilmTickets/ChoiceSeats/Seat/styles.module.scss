@@ -59,7 +59,7 @@
   &.chosen {
     border: 2px solid var(--accent-selected);
     background-color: var(--accent-selected);
-    span {
+    .seatNum {
       color: var(--white-color);
     }
   }

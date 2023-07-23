@@ -1,0 +1,56 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &.error {
+    span {
+      color: var(--accent-color);
+    }
+
+    input {
+      border: 2px solid var(--accent-color);
+
+      &:focus {
+        border: 2px solid rgb(171, 9, 9);
+      }
+    }
+  }
+
+  span {
+    margin-left: 8px;
+    color: var(--form-title-color);
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  input {
+    outline: none;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--lightgrey-color);
+    background: var(--white-color);
+    box-sizing: border-box;
+
+    color: var(--main-color);
+    font-size: 20px;
+    line-height: 24px;
+
+    &:focus {
+      border: 2px solid var(--lightgrey-color);
+    }
+
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
+
+  .errorMessage {
+    margin-top: 2px;
+    margin-bottom: 4px;
+    color: var(--accent-color);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 12px;
+  }
+}

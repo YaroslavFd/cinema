@@ -9,6 +9,10 @@ body {
   line-height: 1.25;
 }
 
+body.locked {
+  overflow-y: hidden;
+}
+
 .content {
   padding: 20px 0 40px;
 }
