@@ -5,8 +5,6 @@ import { ErrorOrderInfo } from './ErrorOrderInfo'
 import { PendingOrderInfo } from './PendingOrderInfo'
 import { SuccessOrderInfo } from './SuccessOrderInfo'
 
-import styles from './styles.module.scss'
-
 interface OrderInfoProps {
   orderNumber: number
   status: 'success' | 'error' | 'loading' | 'idle'

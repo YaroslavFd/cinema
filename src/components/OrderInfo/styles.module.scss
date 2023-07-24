@@ -3,6 +3,10 @@
   margin: 0 auto;
   padding: 18px 5px 5px;
 
+  @media (max-width: 375px) {
+    padding: 12px 0px 5px;
+  }
+
   h3 {
     margin: 0;
     margin-bottom: 15px;
@@ -11,6 +15,16 @@
     font-size: 32px;
     font-weight: 500;
     line-height: 32px;
+
+    @media (max-width: 567px) {
+      font-size: 24px;
+      line-height: 26px;
+    }
+
+    @media (max-width: 375px) {
+      font-size: 20px;
+      line-height: 22px;
+    }
   }
 
   img {
@@ -19,6 +33,18 @@
     margin-bottom: 40px;
     width: 65px;
     height: 65px;
+
+    @media (max-width: 567px) {
+      margin-bottom: 30px;
+      width: 55px;
+      height: 55px;
+    }
+
+    @media (max-width: 375px) {
+      margin-bottom: 25px;
+      width: 40px;
+      height: 40px;
+    }
   }
 
   .code {
@@ -30,6 +56,16 @@
     letter-spacing: 0.24px;
     text-transform: uppercase;
 
+    @media (max-width: 567px) {
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+    @media (max-width: 375px) {
+      font-size: 18px;
+      line-height: 18px;
+    }
+
     span {
       display: block;
       margin-top: 9px;
@@ -38,6 +74,17 @@
       font-weight: 500;
       line-height: 32px;
       letter-spacing: 0.32px;
+
+      @media (max-width: 567px) {
+        font-size: 24px;
+        line-height: 24px;
+      }
+
+      @media (max-width: 375px) {
+        margin-top: 7px;
+        font-size: 20px;
+        line-height: 20px;
+      }
     }
   }
 
@@ -53,6 +100,11 @@
     font-size: 20px;
     line-height: 20px;
     letter-spacing: 0.2px;
+
+    @media (max-width: 567px) {
+      font-size: 16px;
+      line-height: 16px;
+    }
   }
 
   .infoMessage {
@@ -62,6 +114,16 @@
     font-size: 20px;
     line-height: 23px;
     letter-spacing: 0.2px;
+
+    @media (max-width: 567px) {
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    @media (max-width: 375px) {
+      font-size: 16px;
+      line-height: 18px;
+    }
   }
 
   .loading {
@@ -69,6 +131,16 @@
     svg {
       width: 150px;
       height: 150px;
+
+      @media (max-width: 567px) {
+        width: 120px;
+        height: 120px;
+      }
+
+      @media (max-width: 375px) {
+        width: 100px;
+        height: 100px;
+      }
     }
   }
 }
