@@ -2,13 +2,18 @@ import React from 'react'
 
 import styles from './styles.module.scss'
 
-export const Spinner: React.FC = () => (
+interface SpinnerProps {
+  width?: number
+  height?: number
+}
+
+export const Spinner: React.FC<SpinnerProps> = ({ width = 200, height = 200 }) => (
   <svg
     className={styles.spinner}
     xmlns="http://www.w3.org/2000/svg"
     style={{ margin: '0 auto', background: 'none', display: 'block' }}
-    width="200px"
-    height="200px"
+    width={width}
+    height={height}
     viewBox="0 0 100 100"
     preserveAspectRatio="xMidYMid"
   >

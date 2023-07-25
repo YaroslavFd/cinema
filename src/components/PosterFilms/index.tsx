@@ -2,7 +2,9 @@ import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 
 import { PosterFilmsService } from '../../utils/api/PosterFilmsService'
+import { ContentError } from '../ContentError'
 import { FilmCard } from '../FilmCard'
+import { Skeleton } from '../FilmCard/Skeleton'
 
 import styles from './styles.module.scss'
 
@@ -12,12 +14,8 @@ export const PosterFilms: React.FC = () => {
     queryFn: PosterFilmsService.getFilms
   })
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
-
   if (isError) {
-    return <div>Error</div>
+    return <ContentError />
   }
 
   return (
@@ -30,9 +28,9 @@ export const PosterFilms: React.FC = () => {
       </h1>
 
       <div className={styles.content}>
-        {data.films.map((film) => (
-          <FilmCard key={film.id} film={film} />
-        ))}
+        {isLoading
+          ? [...new Array(8)].map((_, i) => <Skeleton key={i} />)
+          : data?.films.map((film) => <FilmCard key={film.id} film={film} />)}
       </div>
     </div>
   )

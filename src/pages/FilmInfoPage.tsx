@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import { CardInfoForm } from '../components/CardInfoForm'
 import { ChoiceFilmTickets } from '../components/ChoiceFilmTickets'
+import { ContentError } from '../components/ContentError'
 import { FilmInfo } from '../components/FilmInfo'
 import { FilmSchedule } from '../components/FilmSchedule'
 import { Modal } from '../components/Modal'
@@ -12,6 +13,7 @@ import { UserInfoForm } from '../components/UserInfoForm'
 import { useModal } from '../hooks/useModal'
 import { useOrderTicketsStore } from '../store/orderTickets'
 import { useUserInfoStore } from '../store/userInfo'
+import { Spinner } from '../UI/Spinner'
 import { PosterFilmsService } from '../utils/api/PosterFilmsService'
 import { UserOrdersService } from '../utils/api/UserOrdersService'
 import { DebitCard } from '../utils/types/DebitCard'
@@ -33,7 +35,7 @@ export const FilmInfoPage: React.FC = () => {
   })
 
   if (!Number(id)) {
-    return <div>Error</div>
+    return <ContentError />
   }
 
   const queries = useQueries({
@@ -90,11 +92,11 @@ export const FilmInfoPage: React.FC = () => {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <Spinner width={250} height={250} />
   }
 
   if (isError) {
-    return <div>Error</div>
+    return <ContentError />
   }
 
   return (

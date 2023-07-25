@@ -2,13 +2,14 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 import { FilmInfoPage } from '../pages/FilmInfoPage'
 import { Layout } from '../pages/Layout'
+import { NotFoundPage } from '../pages/NotFoundPage'
 import { PosterPage } from '../pages/PosterPage'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
-    errorElement: <div>Error url</div>,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: '/',
