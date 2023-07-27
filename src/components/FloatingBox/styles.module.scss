@@ -1,0 +1,57 @@
+.box {
+  position: fixed;
+  top: 20%;
+  right: 20px;
+  z-index: 10;
+  background-color: var(--accent-dull-color);
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: var(--white-color);
+  font-size: 18px;
+
+  animation: slideRight 1s ease-in-out;
+
+  @media (max-width: 567px) {
+    top: 15%;
+  }
+
+  &.leaving {
+    animation: slideLeft 1s ease-in-out;
+  }
+
+  .progressBar {
+    position: relative;
+    overflow: hidden;
+    margin-top: 4px;
+    height: 8px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+
+    .progressFill {
+      height: 100%;
+      background-color: var(--accent-color);
+      width: 100%;
+      transition: width 1s linear;
+    }
+  }
+}
+
+@keyframes slideRight {
+  from {
+    right: -400px;
+  }
+  to {
+    right: 20px;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    right: 20px;
+  }
+  to {
+    right: -400px;
+  }
+}

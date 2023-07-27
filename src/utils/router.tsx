@@ -1,5 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
+import { AuthPage } from '../pages/AuthPage'
 import { FilmInfoPage } from '../pages/FilmInfoPage'
 import { Layout } from '../pages/Layout'
 import { NotFoundPage } from '../pages/NotFoundPage'
@@ -26,7 +27,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/auth',
-        element: <div>auth</div>
+        element: <AuthPage />
+      },
+      {
+        path: '/profile',
+        element: <div>Profile</div>
       }
     ]
   }

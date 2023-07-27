@@ -13,6 +13,7 @@ interface InputProps<T> {
   required?: boolean
   onChange?: (value: string) => void
   value?: string
+  disabled?: boolean
   validation?: T
 }
 
@@ -26,6 +27,7 @@ export const Input = <T,>({
   required = false,
   onChange,
   value,
+  disabled,
   validation
 }: InputProps<T>) => {
   const inputId = React.useId()
@@ -51,6 +53,7 @@ export const Input = <T,>({
         placeholder={placeholder}
         required={required}
         id={inputId}
+        disabled={disabled}
         {...validation}
         onChange={handleChange}
       />
