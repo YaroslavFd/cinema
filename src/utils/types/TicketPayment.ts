@@ -3,7 +3,7 @@ import { Person } from '../../store/userInfo'
 import { DebitCard } from './DebitCard'
 import { FilmSeanceTime } from './FilmSchedule'
 
-interface Ticket {
+export interface Ticket {
   filmId: string
   row: number
   column: number
@@ -20,7 +20,7 @@ export interface TicketPayment {
 }
 
 export interface TicketOrder {
-  filmName: string
+  filmName?: string
   orderNumber: number
   tickets: Ticket[]
   phone: string

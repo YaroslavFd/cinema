@@ -5,6 +5,7 @@ import { FilmInfoPage } from '../pages/FilmInfoPage'
 import { Layout } from '../pages/Layout'
 import { NotFoundPage } from '../pages/NotFoundPage'
 import { PosterPage } from '../pages/PosterPage'
+import { UserProfilePage } from '../pages/UserProfilePage'
 
 export const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <div>Profile</div>
+        element: <UserProfilePage />
       }
     ]
   }

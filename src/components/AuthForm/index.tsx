@@ -30,11 +30,14 @@ export const AuthForm: React.FC = () => {
   const otpMutation = useMutation((phone: CreateOtp) => AuthService.otp(phone), {})
   const signInMutation = useMutation((signInInfo: SignInInfo) => ProfileService.signIn(signInInfo), {})
 
-  const addProfile = useUserProfileStore((state) => state.addProfile)
+  const logout = useUserProfileStore((state) => state.logout)
+  const login = useUserProfileStore((state) => state.login)
+
+  React.useEffect(() => logout(), [])
 
   React.useEffect(() => {
     if (signInMutation.isSuccess) {
-      addProfile({ user: signInMutation.data?.user, token: signInMutation.data?.token })
+      login({ user: signInMutation.data?.user, token: signInMutation.data?.token })
       navigate('/profile')
     }
   }, [signInMutation.status])
@@ -73,16 +76,16 @@ export const AuthForm: React.FC = () => {
   }
 
   const nextOtpCode = async () => {
-    otpMutation.mutate({ phone: watch('phone') })
-
     try {
+      await otpMutation.mutateAsync({ phone: watch('phone') })
+
       const htmlResponse = await AuthService.getOtps()
       setCode(Number(getOtpCode(htmlResponse)))
-      setShowCodeBox(true)
     } catch (error) {
       console.log(error)
     }
 
+    setShowCodeBox(true)
     nextStep()
   }
 
@@ -96,7 +99,9 @@ export const AuthForm: React.FC = () => {
       className={styles.form}
       onSubmit={handleSubmit(({ phone, code }) => onSubmit({ phone, code: parseInt(code) }))}
     >
-      {showCodeBox && <FloatingBox>Код: {code}</FloatingBox>}
+      {showCodeBox && (
+        <FloatingBox>{code ? `Код: ${code}` : 'Ошибка. Попробуйте запросить код снова.'}</FloatingBox>
+      )}
 
       <Input
         labelText="Номер телефона"

@@ -7,8 +7,10 @@ export const UserOrdersService = {
     return response.data
   },
 
-  getUserOrders: async (): Promise<UserOrdersResponse> => {
-    const response = await instance.get('/orders')
+  getUserOrders: async (token: string): Promise<UserOrdersResponse> => {
+    const response = await instance.get('/orders', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
     return response.data
   }
 }

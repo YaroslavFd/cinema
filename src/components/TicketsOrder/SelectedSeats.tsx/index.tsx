@@ -11,9 +11,10 @@ interface RowSeats {
 
 interface SelectedSeatsProps {
   selectedSeats: Seats[]
+  isNamedPlace?: boolean
 }
 
-export const SelectedSeats: React.FC<SelectedSeatsProps> = ({ selectedSeats }) => {
+export const SelectedSeats: React.FC<SelectedSeatsProps> = ({ selectedSeats, isNamedPlace }) => {
   const groupedSeats: RowSeats[] = []
 
   selectedSeats.forEach((seat) => {
@@ -30,7 +31,8 @@ export const SelectedSeats: React.FC<SelectedSeatsProps> = ({ selectedSeats }) =
     <>
       {groupedSeats.map((rowSeats) => (
         <p key={rowSeats.row} className={styles.row}>
-          {rowSeats.row} ряд - {rowSeats.columns.join(', ')}
+          {rowSeats.row} ряд - {rowSeats.columns.join(', ')}{' '}
+          {isNamedPlace && (rowSeats.columns.length === 1 ? 'место' : 'места')}
         </p>
       ))}
     </>

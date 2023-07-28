@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { Person, useUserInfoStore } from '../../store/userInfo'
 import { Button } from '../../UI/Button'
 import { Input } from '../../UI/Input'
-import { userInfoScheme } from '../../utils/validationSchemes/userInfo'
+import { userInfoScheme } from '../../utils/validationSchemes/userInfoScheme'
 
 import styles from './styles.module.scss'
 

@@ -22,15 +22,15 @@ export const Seat: React.FC<ISeatProps> = ({ price, type, rowNum, seatNum }) => 
   let seatType
 
   switch (type) {
-    case 'COMFORT':
-      seatType = styles.comfort
-      break
-    case 'BLOCKED':
-      seatType = styles.taken
-      break
-    default:
-      seatType = ''
-      break
+  case 'COMFORT':
+    seatType = styles.comfort
+    break
+  case 'BLOCKED':
+    seatType = styles.taken
+    break
+  default:
+    seatType = ''
+    break
   }
 
   const seatClickHandler = (type: SeancePlaceType) => {

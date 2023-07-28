@@ -1,0 +1,22 @@
+.form {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  max-width: 340px;
+  width: 100%;
+
+  @media (max-width: 992px) {
+    max-width: 270px;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 0px;
+    max-width: 340px;
+  }
+
+  .btn {
+    margin-top: 22px;
+  }
+}
