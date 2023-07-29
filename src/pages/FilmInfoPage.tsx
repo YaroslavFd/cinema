@@ -23,8 +23,11 @@ export const FilmInfoPage: React.FC = () => {
   const { id } = useParams()
 
   const person = useUserInfoStore((state) => state.person)
+
   const initialTicketInfo = useOrderTicketsStore((state) => state.initialTicketInfo)
   const chosenSeats = useOrderTicketsStore((state) => state.chosenSeats)
+  const resetChosenSeats = useOrderTicketsStore((state) => state.resetChosenSeats)
+  const toggleOrderPaidStatus = useOrderTicketsStore((state) => state.toggleOrderPaidStatus)
 
   const {
     mutate,
@@ -91,6 +94,12 @@ export const FilmInfoPage: React.FC = () => {
     orderInfoModal.onModalOpen()
   }
 
+  const closeOrderInfoModal = () => {
+    toggleOrderPaidStatus()
+    orderInfoModal.onModalClose()
+    resetChosenSeats()
+  }
+
   if (isLoading) {
     return <Spinner width={250} height={250} />
   }
@@ -113,7 +122,7 @@ export const FilmInfoPage: React.FC = () => {
       <Modal isOpened={cardInfoModal.isOpened} onClose={cardInfoModal.onModalClose}>
         <CardInfoForm onCardInfoSubmit={onCardInfoSubmit} />
       </Modal>
-      <Modal isOpened={orderInfoModal.isOpened} onClose={orderInfoModal.onModalClose}>
+      <Modal isOpened={orderInfoModal.isOpened} onClose={closeOrderInfoModal}>
         <OrderInfo orderNumber={paymentData?.order.orderNumber || 0} status={paymentStatus} />
       </Modal>
     </section>

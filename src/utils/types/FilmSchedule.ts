@@ -1,5 +1,5 @@
-export type SeancePlaceType = 'COMFORT' | 'ECONOM' | 'BLOCKED'
-export type SeanceHallNameType =  'Red' | 'Green' | 'Blue'
+export type SeancePlaceType = 'COMFORT' | 'ECONOM' | 'BLOCKED' | 'PURCHASED'
+export type SeanceHallNameType = 'Red' | 'Green' | 'Blue'
 
 export interface FilmSeancePlace {
   price: number

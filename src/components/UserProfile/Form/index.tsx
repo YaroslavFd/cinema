@@ -15,7 +15,7 @@ export const Form: React.FC = () => {
   const profile = useUserProfileStore((state) => state.profile)
 
   const { data, status } = useQuery({
-    queryKey: ['session'],
+    queryKey: ['session', { profile }],
     queryFn: () => ProfileService.getSession(profile.token)
   })
 

@@ -19,22 +19,26 @@ export const Seat: React.FC<ISeatProps> = ({ price, type, rowNum, seatNum }) => 
 
   const typeTitle = type === 'COMFORT' ? 'комфорт' : 'эконом'
 
+  // NOTE: backend does not update data on tickets purchased by other people
   let seatType
 
   switch (type) {
-  case 'COMFORT':
-    seatType = styles.comfort
-    break
-  case 'BLOCKED':
-    seatType = styles.taken
-    break
-  default:
-    seatType = ''
-    break
+    case 'COMFORT':
+      seatType = styles.comfort
+      break
+    case 'BLOCKED':
+      seatType = styles.taken
+      break
+    case 'PURCHASED':
+      seatType = styles.sold
+      break
+    default:
+      seatType = ''
+      break
   }
 
   const seatClickHandler = (type: SeancePlaceType) => {
-    if (type !== 'BLOCKED') {
+    if (type !== 'BLOCKED' && type !== 'PURCHASED') {
       addSeats({ row: rowNum, column: seatNum }, price)
     }
   }

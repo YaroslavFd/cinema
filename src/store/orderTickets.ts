@@ -22,6 +22,8 @@ interface OrderTicketsState {
   initialTicketInfo: InitialTicketInfo | null
   price: number
   chosenSeats: Seats[]
+  orderPaidStatus: boolean
+  toggleOrderPaidStatus: () => void
   addInitialTicketInfo: (value: InitialTicketInfo) => void
   resetOrderTicketInfo: () => void
   resetChosenSeats: () => void
@@ -33,6 +35,12 @@ export const useOrderTicketsStore = create<OrderTicketsState, [['zustand/immer',
     initialTicketInfo: null,
     price: 0,
     chosenSeats: [],
+    orderPaidStatus: false,
+
+    toggleOrderPaidStatus: () =>
+      set((state) => {
+        state.orderPaidStatus = !state.orderPaidStatus
+      }),
 
     addInitialTicketInfo: (value: InitialTicketInfo) =>
       set((state) => {

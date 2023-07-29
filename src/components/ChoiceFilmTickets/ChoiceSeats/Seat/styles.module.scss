@@ -64,6 +64,24 @@
     }
   }
 
+  &.sold {
+    border: 2px solid var(--grey-color);
+    background-color: var(--grey-color);
+
+    span {
+      display: none;
+    }
+
+    &:hover {
+      cursor: default;
+    }
+
+    &:hover .popup {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
   .popup {
     visibility: hidden;
     opacity: 0;
