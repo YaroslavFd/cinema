@@ -1,8 +1,13 @@
 declare module '*.module.scss'
 
 declare module '*.svg' {
-  const content: any
-  export default content
+  import React from 'react';
+
+  const content: string;
+  const ReactComponent: React.ComponentType;
+
+  export { ReactComponent };
+  export default content;
 }
 
 declare module '*.png' {

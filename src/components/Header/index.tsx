@@ -1,17 +1,14 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
-import { Button } from '../../UI/Button'
+import { HeaderButton } from './HeaderButton'
 
 import logo from '../../assets/logo.png'
 import styles from './styles.module.scss'
 
 export const Header: React.FC = () => {
-  const navigate = useNavigate()
-
-  const onButtonClick = () => {
-    navigate('/auth')
-  }
+  const location = useLocation()
+  const currentUrl = location.pathname.slice(1)
 
   return (
     <header className={styles.header}>
@@ -19,9 +16,8 @@ export const Header: React.FC = () => {
         <Link to="/">
           <img src={logo} alt="logo" />
         </Link>
-        <Button appearance="outline" onClick={onButtonClick}>
-          Войти
-        </Button>
+
+        {currentUrl !== 'auth' && <HeaderButton />}
       </div>
     </header>
   )
