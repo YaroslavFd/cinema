@@ -1,98 +1,27 @@
-import { useMutation } from '@tanstack/react-query'
 import React from 'react'
-import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
 
-import { useTimer } from '../../hooks/useTimer'
-import { useTwoStepAction } from '../../hooks/useTwoStepAction'
-import { useUserProfileStore } from '../../store/userProfile'
-import { Button } from '../../UI/Button'
-import { Input } from '../../UI/Input'
-import { AuthService } from '../../utils/api/AuthService'
-import { ProfileService } from '../../utils/api/ProfileService'
-import { getOtpCode } from '../../utils/getOtpCode'
-import { CreateOtp } from '../../utils/types/Otp'
-import { SignInInfo } from '../../utils/types/SignIn'
+import { useAuthForm } from '../../hooks/useAuthForm'
 import { FloatingBox } from '../FloatingBox'
-import { isValidOtpCode, isValidPhoneNumber } from './ValidationForm'
+import { PhoneInput } from './Inputs/PhoneInput'
+import { SmsCodeInput } from './Inputs/SmsCodeInput'
+import { TwoStepActionButtons } from './TwoStepActionButtons'
 
 import styles from './styles.module.scss'
 
 export const AuthForm: React.FC = () => {
-  const navigate = useNavigate()
-
-  const [code, setCode] = React.useState(0)
-  const [showCodeBox, setShowCodeBox] = React.useState(false)
-
-  const { isFirst, nextStep } = useTwoStepAction()
-  const timer = useTimer()
-
-  const otpMutation = useMutation((phone: CreateOtp) => AuthService.otp(phone), {})
-  const signInMutation = useMutation((signInInfo: SignInInfo) => ProfileService.signIn(signInInfo), {})
-
-  const logout = useUserProfileStore((state) => state.logout)
-  const login = useUserProfileStore((state) => state.login)
-
-  React.useEffect(() => logout(), [])
-
-  React.useEffect(() => {
-    if (signInMutation.isSuccess) {
-      login({ user: signInMutation.data?.user, token: signInMutation.data?.token })
-      navigate('/profile')
-    }
-  }, [signInMutation.status])
-
-  React.useEffect(() => {
-    if (!!otpMutation.data?.retryDelay) {
-      const time = Math.round(otpMutation.data?.retryDelay / 1000)
-      timer.start(time)
-    }
-  }, [otpMutation.data?.retryDelay])
-
-  React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowCodeBox(false)
-    }, 10000)
-
-    return () => clearTimeout(timer)
-  }, [showCodeBox])
-
   const {
+    onSubmit,
+    code,
+    showCodeBox,
+    isValid,
+    errors,
     register,
-    formState: { errors, isValid },
+    timer,
     handleSubmit,
-    watch
-  } = useForm({
-    mode: 'onBlur'
-  })
-
-  const onSubmit = (signInInfo: SignInInfo) => {
-    if (isFirst) {
-      nextOtpCode()
-      return
-    }
-
-    signInMutation.mutate(signInInfo)
-  }
-
-  const nextOtpCode = async () => {
-    try {
-      await otpMutation.mutateAsync({ phone: watch('phone') })
-
-      const htmlResponse = await AuthService.getOtps()
-      setCode(Number(getOtpCode(htmlResponse)))
-    } catch (error) {
-      console.log(error)
-    }
-
-    setShowCodeBox(true)
-    nextStep()
-  }
-
-  const onCodeRequestClick = (e?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    e?.preventDefault()
-    nextOtpCode()
-  }
+    signInMutation,
+    isFirst,
+    onCodeRequestClick
+  } = useAuthForm()
 
   return (
     <form
@@ -103,58 +32,20 @@ export const AuthForm: React.FC = () => {
         <FloatingBox>{code ? `Код: ${code}` : 'Ошибка. Попробуйте запросить код снова.'}</FloatingBox>
       )}
 
-      <Input
-        labelText="Номер телефона"
-        required
-        name="phone"
-        type="tel"
-        validation={{
-          ...register('phone', {
-            required: 'Это поле обязательно для заполнения!',
-            validate: (value) => isValidPhoneNumber(value) || 'Номер телефона не действителен'
-          })
-        }}
-        error={errors?.phone?.message as string}
-      />
+      <PhoneInput register={register} errors={errors} />
 
-      {!isFirst && (
-        <Input
-          labelText="Код из SMS"
-          required
-          name="code"
-          type="text"
-          validation={{
-            ...register('code', {
-              required: 'Это поле обязательно для заполнения!',
-              validate: (value) => isValidOtpCode(value) || 'Некорректный код'
-            })
-          }}
-          error={errors?.code?.message as string}
-        />
-      )}
+      {!isFirst && <SmsCodeInput register={register} errors={errors} />}
 
       {signInMutation.isError && <p className={styles.error}>Вы ввели неправильный код</p>}
 
-      <div className={styles.btns}>
-        {!isFirst && (
-          <>
-            {!timer.timesUp && (
-              <div className={styles.info}>Запросить код повторно можно через {timer.time} секунд</div>
-            )}
-            <Button
-              appearance="outline"
-              onClick={onCodeRequestClick}
-              disabled={!timer.timesUp}
-              className={!timer.timesUp ? styles.disabled : null}
-            >
-              Запросить код
-            </Button>
-          </>
-        )}
-        <Button disabled={(isFirst && !isValid) || signInMutation.isLoading} type="submit">
-          Продолжить
-        </Button>
-      </div>
+      <TwoStepActionButtons
+        isFirst={isFirst}
+        isValid={isValid}
+        timesUp={timer.timesUp}
+        time={timer.time}
+        isLoading={signInMutation.isLoading}
+        onCodeRequestClick={onCodeRequestClick}
+      />
     </form>
   )
 }

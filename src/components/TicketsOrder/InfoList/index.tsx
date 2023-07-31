@@ -2,7 +2,7 @@ import React from 'react'
 
 import { InitialTicketInfo, useOrderTicketsStore } from '../../../store/orderTickets'
 import { convertDate } from '../../../utils/convertDate'
-import { convertRatingToRussian } from '../../../utils/convertRatingToRussian'
+import { convertRatingToRussian } from '../../../utils/helpers'
 import { SelectedSeats } from '../SelectedSeats.tsx'
 
 import styles from './styles.module.scss'

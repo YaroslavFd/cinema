@@ -15,16 +15,14 @@ export const ChoiceFilmTickets: React.FC<IChoiceFilmTicketsProps> = ({ onBuyButt
   const initialTicketInfo = useOrderTicketsStore((state) => state.initialTicketInfo)
 
   return (
-    <>
-      <div className={styles.content}>
-        <div className={styles.choiceSeatsBox}>
-          <ChoiceSeats />
-          {initialTicketInfo && <SeatsInformation />}
-        </div>
-        {initialTicketInfo && (
-          <TicketsOrder ticketInfo={initialTicketInfo} onBuyButtonClick={onBuyButtonClick} />
-        )}
+    <div className={styles.content}>
+      <div className={styles.choiceSeatsBox}>
+        <ChoiceSeats />
+        {initialTicketInfo && <SeatsInformation />}
       </div>
-    </>
+      {initialTicketInfo && (
+        <TicketsOrder ticketInfo={initialTicketInfo} onBuyButtonClick={onBuyButtonClick} />
+      )}
+    </div>
   )
 }

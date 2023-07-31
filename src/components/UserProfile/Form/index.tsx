@@ -1,23 +1,16 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-import { useUserProfileStore } from '../../../store/userProfile'
+import { useFetchSession } from '../../../hooks/queries/useFetchSession'
 import { Button } from '../../../UI/Button'
 import { Input } from '../../../UI/Input'
-import { ProfileService } from '../../../utils/api/ProfileService'
 import { userProfileScheme } from '../../../utils/validationSchemes/userProfileScheme'
 
 import styles from './styles.module.scss'
 
 export const Form: React.FC = () => {
-  const profile = useUserProfileStore((state) => state.profile)
-
-  const { data, status } = useQuery({
-    queryKey: ['session', { profile }],
-    queryFn: () => ProfileService.getSession(profile.token)
-  })
+  const { data, status } = useFetchSession()
 
   const {
     register,
@@ -48,7 +41,6 @@ export const Form: React.FC = () => {
         validation={{ ...register('phone') }}
         error={errors?.phone?.message}
       />
-
       <Input
         labelText="Имя"
         name="firstname"
@@ -67,14 +59,12 @@ export const Form: React.FC = () => {
         validation={{ ...register('middlename') }}
         error={errors?.middlename?.message}
       />
-
       <Input
         labelText="Email"
         name="email"
         validation={{ ...register('email') }}
         error={errors?.email?.message}
       />
-
       <Input
         labelText="Город"
         name="city"

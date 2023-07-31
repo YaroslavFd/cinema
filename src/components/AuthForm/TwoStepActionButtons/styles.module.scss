@@ -1,0 +1,16 @@
+.btns {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  .disabled {
+    background-color: #f5f5f5;
+    color: var(--lightgrey-color);
+  }
+
+  .info {
+    color: var(--lightgrey-color);
+    font-size: 16px;
+  }
+}

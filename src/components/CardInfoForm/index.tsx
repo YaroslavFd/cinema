@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 
 import { Button } from '../../UI/Button'
 import { Input } from '../../UI/Input'
-import { formatCardCvv, formatCardNumber, formatCardTerm } from '../../utils/cardFormatters'
+import { formatCardCvv, formatCardNumber, formatCardTerm } from '../../utils/helpers'
 import { DebitCard } from '../../utils/types/DebitCard'
 import { cardInfoScheme } from '../../utils/validationSchemes/cardInfoScheme'
 
@@ -16,7 +16,6 @@ interface CardInfoFormProps {
 }
 
 export const CardInfoForm: React.FC<CardInfoFormProps> = ({ onCardInfoSubmit }) => {
-
   const {
     register,
     formState: { errors, isValid },
@@ -31,21 +30,6 @@ export const CardInfoForm: React.FC<CardInfoFormProps> = ({ onCardInfoSubmit }) 
   const onSubmit = (data: DebitCard) => {
     onCardInfoSubmit(data)
     reset()
-  }
-
-  const handleCardNumberChange = (value: string) => {
-    const formattedValue = formatCardNumber(value)
-    setValue('pan', formattedValue)
-  }
-
-  const handleCardTermChange = (value: string) => {
-    const formattedValue = formatCardTerm(value)
-    setValue('expireDate', formattedValue)
-  }
-
-  const handleCardCvvChange = (value: string) => {
-    const formattedValue = formatCardCvv(value)
-    setValue('cvv', formattedValue)
   }
 
   return (
@@ -64,7 +48,7 @@ export const CardInfoForm: React.FC<CardInfoFormProps> = ({ onCardInfoSubmit }) 
               required
               validation={{ ...register('pan') }}
               error={errors?.pan?.message}
-              onChange={handleCardNumberChange}
+              onChange={(value) => setValue('pan', formatCardNumber(value))}
             />
             <div>
               <Input
@@ -74,7 +58,7 @@ export const CardInfoForm: React.FC<CardInfoFormProps> = ({ onCardInfoSubmit }) 
                 required
                 error={errors?.expireDate?.message}
                 validation={{ ...register('expireDate') }}
-                onChange={handleCardTermChange}
+                onChange={(value) => setValue('expireDate', formatCardTerm(value))}
               />
               <Input
                 labelText="CVV"
@@ -84,7 +68,7 @@ export const CardInfoForm: React.FC<CardInfoFormProps> = ({ onCardInfoSubmit }) 
                 validation={{ ...register('cvv') }}
                 error={errors?.cvv?.message}
                 type="password"
-                onChange={handleCardCvvChange}
+                onChange={(value) => setValue('cvv', formatCardCvv(value))}
               />
             </div>
           </div>

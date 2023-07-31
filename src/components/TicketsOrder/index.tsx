@@ -2,7 +2,7 @@ import React from 'react'
 
 import { InitialTicketInfo, useOrderTicketsStore } from '../../store/orderTickets'
 import { Button } from '../../UI/Button'
-import { convertHallName } from '../../utils/convertHallName'
+import { convertHallName } from '../../utils/helpers'
 import { InfoList } from './InfoList'
 
 import styles from './styles.module.scss'
@@ -24,7 +24,7 @@ export const TicketsOrder: React.FC<ITicketsOrderProps> = ({ ticketInfo, onBuyBu
         <h4>
           Сумма: <span>{price}руб</span>
         </h4>
-        <Button disabled={price ? false : true} isIcon onClick={onBuyButtonClick}>
+        <Button onClick={onBuyButtonClick} disabled={price ? false : true} isIcon>
           Купить
         </Button>
       </div>

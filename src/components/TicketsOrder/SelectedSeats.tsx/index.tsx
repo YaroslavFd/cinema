@@ -1,31 +1,17 @@
 import React from 'react'
 
-import { Seats } from '../../../store/orderTickets'
+import { Seat } from '../../../store/orderTickets'
+import { groupSeatsByRow } from '../../../utils/groupSeatsByRow'
 
 import styles from './styles.module.scss'
 
-interface RowSeats {
-  row: number
-  columns: number[]
-}
-
 interface SelectedSeatsProps {
-  selectedSeats: Seats[]
+  selectedSeats: Seat[]
   isNamedPlace?: boolean
 }
 
 export const SelectedSeats: React.FC<SelectedSeatsProps> = ({ selectedSeats, isNamedPlace }) => {
-  const groupedSeats: RowSeats[] = []
-
-  selectedSeats.forEach((seat) => {
-    const existingRow = groupedSeats.find((rowSeats) => rowSeats.row === seat.row)
-
-    if (existingRow) {
-      existingRow.columns.push(seat.column)
-    } else {
-      groupedSeats.push({ row: seat.row, columns: [seat.column] })
-    }
-  })
+  const groupedSeats = groupSeatsByRow(selectedSeats)
 
   return (
     <>

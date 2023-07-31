@@ -1,4 +1,4 @@
-import { Seats } from '../../store/orderTickets'
+import { Seat } from '../../store/orderTickets'
 import { Person } from '../../store/userInfo'
 import { DebitCard } from './DebitCard'
 import { FilmSeanceTime } from './FilmSchedule'
@@ -16,7 +16,7 @@ export interface TicketPayment {
   person: Person
   debitCard: DebitCard
   seance: FilmSeanceTime
-  tickets: Seats[]
+  tickets: Seat[]
 }
 
 export interface TicketOrder {

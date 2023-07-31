@@ -15,31 +15,13 @@ interface ISeatProps {
 
 export const Seat: React.FC<ISeatProps> = ({ price, type, rowNum, seatNum }) => {
   const chosenSeats = useOrderTicketsStore((state) => state.chosenSeats)
-  const addSeats = useOrderTicketsStore((state) => state.addSeats)
+  const addSeat = useOrderTicketsStore((state) => state.addSeat)
 
   const typeTitle = type === 'COMFORT' ? 'комфорт' : 'эконом'
 
-  // NOTE: backend does not update data on tickets purchased by other people
-  let seatType
-
-  switch (type) {
-    case 'COMFORT':
-      seatType = styles.comfort
-      break
-    case 'BLOCKED':
-      seatType = styles.taken
-      break
-    case 'PURCHASED':
-      seatType = styles.sold
-      break
-    default:
-      seatType = ''
-      break
-  }
-
   const seatClickHandler = (type: SeancePlaceType) => {
     if (type !== 'BLOCKED' && type !== 'PURCHASED') {
-      addSeats({ row: rowNum, column: seatNum }, price)
+      addSeat({ row: rowNum, column: seatNum }, price)
     }
   }
 
@@ -47,9 +29,16 @@ export const Seat: React.FC<ISeatProps> = ({ price, type, rowNum, seatNum }) => 
     (activeSeat) => activeSeat.row === rowNum && activeSeat.column === seatNum
   )
 
+  // NOTE: backend does not update data on tickets purchased by other people
+
   return (
     <div
-      className={cn(styles.seat, seatType, isActiveSeat ? styles.chosen : null)}
+      className={cn(styles.seat, {
+        [styles.comfort]: type === 'COMFORT',
+        [styles.taken]: type === 'BLOCKED',
+        [styles.sold]: type === 'PURCHASED',
+        [styles.chosen]: isActiveSeat
+      })}
       onClick={() => seatClickHandler(type)}
     >
       <span className={styles.seatNum}>{seatNum}</span>

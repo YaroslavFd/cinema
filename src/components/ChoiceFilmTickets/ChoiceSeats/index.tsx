@@ -1,10 +1,8 @@
-import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 
+import { useFetchOrders } from '../../../hooks/queries/useFetchOrders'
 import { useOrderTicketsStore } from '../../../store/orderTickets'
 import { useSeanceStore } from '../../../store/seance'
-import { useUserProfileStore } from '../../../store/userProfile'
-import { UserOrdersService } from '../../../utils/api/UserOrdersService'
 import { getReservedSeats } from '../../../utils/getReservedSeats'
 import { RowNumbers } from './RowNumbers'
 import { Seat } from './Seat'
@@ -12,23 +10,21 @@ import { Seat } from './Seat'
 import styles from './styles.module.scss'
 
 export const ChoiceSeats: React.FC = () => {
-  const initialTicketInfo = useOrderTicketsStore((state) => state.initialTicketInfo)
-  const resetOrderTicketInfo = useOrderTicketsStore((state) => state.resetOrderTicketInfo)
-  const orderPaidStatus = useOrderTicketsStore((state) => state.orderPaidStatus)
+  const { initialTicketInfo, resetOrderTicketInfo, orderPaidStatus } = useOrderTicketsStore((state) => ({
+    initialTicketInfo: state.initialTicketInfo,
+    resetOrderTicketInfo: state.resetOrderTicketInfo,
+    orderPaidStatus: state.orderPaidStatus
+  }))
 
-  const seance = useSeanceStore((state) => state.seance)
-  const resetSeance = useSeanceStore((state) => state.resetSeance)
-
-  const isAuth = useUserProfileStore((state) => state.isAuth)
-  const profile = useUserProfileStore((state) => state.profile)
+  const { seance, resetSeance } = useSeanceStore((state) => ({
+    seance: state.seance,
+    resetSeance: state.resetSeance
+  }))
 
   const seatsArray = seance?.hall.places
   const rowQuantity = seance?.hall.places.length
 
-  const { data } = useQuery({
-    queryKey: ['orders', { orderPaidStatus }],
-    queryFn: () => (isAuth ? UserOrdersService.getUserOrders(profile.token) : null)
-  })
+  const { data } = useFetchOrders(orderPaidStatus)
 
   const reservedSeats = getReservedSeats(
     data?.orders || [],

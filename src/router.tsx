@@ -1,11 +1,11 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
-import { AuthPage } from '../pages/AuthPage'
-import { FilmInfoPage } from '../pages/FilmInfoPage'
-import { Layout } from '../pages/Layout'
-import { NotFoundPage } from '../pages/NotFoundPage'
-import { PosterPage } from '../pages/PosterPage'
-import { UserProfilePage } from '../pages/UserProfilePage'
+import { AuthPage } from './pages/AuthPage'
+import { FilmInfoPage } from './pages/FilmInfoPage'
+import { Layout } from './pages/Layout'
+import { NotFoundPage } from './pages/NotFoundPage'
+import { PosterPage } from './pages/PosterPage'
+import { UserProfilePage } from './pages/UserProfilePage'
 
 export const router = createBrowserRouter([
   {
@@ -27,11 +27,11 @@ export const router = createBrowserRouter([
         element: <FilmInfoPage />
       },
       {
-        path: '/auth',
+        path: 'auth',
         element: <AuthPage />
       },
       {
-        path: '/profile',
+        path: 'profile',
         element: <UserProfilePage />
       }
     ]

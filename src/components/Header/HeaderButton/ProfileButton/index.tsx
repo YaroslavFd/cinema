@@ -2,30 +2,13 @@ import cn from 'classnames'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { useDropdown } from '../../../../hooks/useDropdown'
+
 import { ReactComponent as ProfileUserSvg } from '../../../../assets/profile-user.svg'
 import styles from './styles.module.scss'
 
 export const ProfileButton: React.FC = () => {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const dropdownBoxRef = React.useRef<HTMLDivElement>(null)
-
-  const onToggleIsOpen = () => {
-    setIsOpen((prev) => !prev)
-  }
-
-  React.useEffect(() => {
-    const handleClickOutside = (event: Event) => {
-      if (dropdownBoxRef.current && !dropdownBoxRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
-      }
-    }
-
-    document.addEventListener('mousedown', handleClickOutside)
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
+  const { isOpen, onToggleIsOpen, dropdownBoxRef } = useDropdown()
 
   return (
     <div ref={dropdownBoxRef} className={styles.box}>

@@ -15,6 +15,7 @@ interface IUserInfoFormProps {
 
 export const UserInfoForm: React.FC<IUserInfoFormProps> = ({ onUserInfoSubmit }) => {
   const addPersonInfo = useUserInfoStore((state) => state.addPersonInfo)
+
   const {
     register,
     formState: { errors, isValid },

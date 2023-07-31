@@ -1,7 +1,6 @@
-import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 
-import { PosterFilmsService } from '../../../../utils/api/PosterFilmsService'
+import { useFetchFilms } from '../../../../hooks/queries/useFetchFilms'
 import { combinePlacesToArray } from '../../../../utils/combinePlacesToArray'
 import { convertDate } from '../../../../utils/convertDate'
 import { Ticket as TicketType } from '../../../../utils/types/TicketPayment'
@@ -19,10 +18,7 @@ export const Ticket: React.FC<TicketProps> = ({ orderNumber, tickets, id }) => {
   const combinedPlacesArray = combinePlacesToArray(tickets)
   const date = convertDate(tickets[0].seance.date).split(',').reverse().join(', ')
 
-  const { data } = useQuery({
-    queryKey: ['films'],
-    queryFn: PosterFilmsService.getFilms
-  })
+  const { data } = useFetchFilms()
 
   const film = data?.films.find((film) => String(film.id) === String(id))
 

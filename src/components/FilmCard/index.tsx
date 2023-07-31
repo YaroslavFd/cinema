@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { Button } from '../../UI/Button'
 import { FilmRating } from '../../UI/FilmRating'
-import { convertRatingToRussian } from '../../utils/convertRatingToRussian'
-import { getReleaseYear } from '../../utils/getReleaseYear'
+import { convertRatingToRussian, getReleaseYear } from '../../utils/helpers'
 import { Film } from '../../utils/types/Film'
 
 import styles from './styles.module.scss'

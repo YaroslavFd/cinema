@@ -1,7 +1,6 @@
-import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 
-import { PosterFilmsService } from '../../utils/api/PosterFilmsService'
+import { useFetchFilms } from '../../hooks/queries/useFetchFilms'
 import { ContentError } from '../ContentError'
 import { FilmCard } from '../FilmCard'
 import { Skeleton } from '../FilmCard/Skeleton'
@@ -9,10 +8,7 @@ import { Skeleton } from '../FilmCard/Skeleton'
 import styles from './styles.module.scss'
 
 export const PosterFilms: React.FC = () => {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ['films'],
-    queryFn: PosterFilmsService.getFilms
-  })
+  const { data, isLoading, isError } = useFetchFilms()
 
   if (isError) {
     return <ContentError />

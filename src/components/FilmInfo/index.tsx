@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { FilmRating } from '../../UI/FilmRating'
-import { convertRatingToRussian } from '../../utils/convertRatingToRussian'
-import { getReleaseYear } from '../../utils/getReleaseYear'
+import { convertRatingToRussian, getReleaseYear } from '../../utils/helpers'
 import { Film } from '../../utils/types/Film'
+import { BoxImg } from './BoxImg'
 import { Description } from './Description'
 import { Directors } from './Directors'
 
@@ -13,48 +13,25 @@ interface IFilmInfoProps {
   film: Film
 }
 
-export const FilmInfo: React.FC<IFilmInfoProps> = ({ film }) => {
-  const { name, ageRating, img, genres, country, releaseDate, userRatings, description, directors } =
-    film
-
-  return (
-    <div className={styles.wrapper}>
-      <div className={styles.boxImg}>
-        <div
-          className={styles.img}
-          style={{
-            backgroundImage: `url('https://shift-backend.onrender.com${img}')`
-          }}
-        ></div>
-        <div className={styles.date}>
-          <span>в прокате</span> с 1 июня по 14 июня
-        </div>
-      </div>
-      <div className={styles.boxInfo}>
-        <h2 className={styles.title}>
-          {name}{' '}
-          {convertRatingToRussian(ageRating) !== 'Error' && `(${convertRatingToRussian(ageRating)})`}
-        </h2>
-        <Directors directors={directors} />
-        <span className={styles.smallInfo}>
-          {genres.join(', ')}, {!!country && `${country.name}, `} {getReleaseYear(releaseDate)}{' '}
-        </span>
-        <FilmRating className={styles.rating} rating={userRatings.kinopoisk}>
-          Kinopoisk
-        </FilmRating>
-        <div className={styles.mobileBoxImg}>
-          <div
-            className={styles.mobileImg}
-            style={{
-              backgroundImage: `url('https://shift-backend.onrender.com${img}')`
-            }}
-          ></div>
-          <div className={styles.date}>
-            <span>в прокате</span> с 1 июня по 14 июня
-          </div>
-        </div>
-        <Description text={description} />
-      </div>
+export const FilmInfo: React.FC<IFilmInfoProps> = ({ film }) => (
+  <div className={styles.wrapper}>
+    <BoxImg img={film.img} />
+    <div className={styles.boxInfo}>
+      <h2 className={styles.title}>
+        {film.name}{' '}
+        {convertRatingToRussian(film.ageRating) !== 'Error' &&
+          `(${convertRatingToRussian(film.ageRating)})`}
+      </h2>
+      <Directors directors={film.directors} />
+      <span className={styles.smallInfo}>
+        {film.genres.join(', ')}, {!!film.country && `${film.country.name}, `}{' '}
+        {getReleaseYear(film.releaseDate)}{' '}
+      </span>
+      <FilmRating className={styles.rating} rating={film.userRatings.kinopoisk}>
+        Kinopoisk
+      </FilmRating>
+      <BoxImg img={film.img} isMobile />
+      <Description text={film.description} />
     </div>
-  )
-}
+  </div>
+)

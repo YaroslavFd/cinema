@@ -1,21 +1,14 @@
-import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 
-import { useUserProfileStore } from '../../../store/userProfile'
+import { useFetchOrders } from '../../../hooks/queries/useFetchOrders'
 import { Spinner } from '../../../UI/Spinner'
-import { UserOrdersService } from '../../../utils/api/UserOrdersService'
 import { ContentError } from '../../ContentError'
 import { Ticket } from './Ticket'
 
 import styles from './styles.module.scss'
 
 export const Tickets: React.FC = () => {
-  const profile = useUserProfileStore((state) => state.profile)
-
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ['orders'],
-    queryFn: () => UserOrdersService.getUserOrders(profile.token)
-  })
+  const { data, isLoading, isError } = useFetchOrders()
 
   const arrayOrders = data?.orders
 
