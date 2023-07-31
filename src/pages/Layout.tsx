@@ -2,14 +2,19 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 
 import { Header } from '../components/Header'
+import { Spinner } from '../UI/Spinner'
 
-export const Layout: React.FC = () => (
+const Layout: React.FC = () => (
   <div className="wrapper">
     <Header />
     <main className="content">
       <div className="container">
-        <Outlet />
+        <React.Suspense fallback={<Spinner />}>
+          <Outlet />
+        </React.Suspense>
       </div>
     </main>
   </div>
 )
+
+export default Layout

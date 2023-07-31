@@ -1,11 +1,13 @@
+import { lazy } from 'react'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
-import { AuthPage } from './pages/AuthPage'
-import { FilmInfoPage } from './pages/FilmInfoPage'
-import { Layout } from './pages/Layout'
-import { NotFoundPage } from './pages/NotFoundPage'
-import { PosterPage } from './pages/PosterPage'
-import { UserProfilePage } from './pages/UserProfilePage'
+import Layout from './pages/Layout'
+
+const AuthPage = lazy(() => import('./pages/AuthPage'))
+const FilmInfoPage = lazy(() => import('./pages/FilmInfoPage'))
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
+const PosterPage = lazy(() => import('./pages/PosterPage'))
+const UserProfilePage = lazy(() => import('./pages/UserProfilePage'))
 
 export const router = createBrowserRouter([
   {

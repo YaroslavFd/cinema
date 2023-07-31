@@ -3,7 +3,7 @@ import React from 'react'
 import { Header } from '../components/Header'
 import { NotFound } from '../components/NotFound'
 
-export const NotFoundPage: React.FC = () => (
+const NotFoundPage: React.FC = () => (
   <div className="wrapper">
     <Header />
     <main className="content">
@@ -13,3 +13,5 @@ export const NotFoundPage: React.FC = () => (
     </main>
   </div>
 )
+
+export default NotFoundPage

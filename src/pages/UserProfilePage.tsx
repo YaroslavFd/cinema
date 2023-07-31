@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom'
 import { UserProfile } from '../components/UserProfile'
 import { useUserProfileStore } from '../store/userProfile'
 
-export const UserProfilePage: React.FC = () => {
+const UserProfilePage: React.FC = () => {
   const isAuth = useUserProfileStore((state) => state.isAuth)
 
   if (isAuth) {
@@ -18,3 +18,5 @@ export const UserProfilePage: React.FC = () => {
     return <Navigate to="/auth" replace />
   }
 }
+
+export default UserProfilePage

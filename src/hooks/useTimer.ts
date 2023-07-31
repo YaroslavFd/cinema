@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 export const useTimer = () => {
   const [time, setTime] = React.useState(0)
 

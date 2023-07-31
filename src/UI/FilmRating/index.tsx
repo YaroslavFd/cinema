@@ -11,11 +11,7 @@ interface IFilmRatingProps {
   children: React.ReactNode
 }
 
-export const FilmRating: React.FC<IFilmRatingProps> = ({
-  className = '',
-  rating,
-  children
-}) => (
+export const FilmRating: React.FC<IFilmRatingProps> = ({ className = '', rating, children }) => (
   <div className={cn(styles.rating, className)}>
     <div className={styles.stars}>{renderStars(rating)}</div>
     <p>

@@ -14,7 +14,7 @@ import { useFetchFilmShedule } from '../hooks/queries/useFetchFilmShedule'
 import { useOrderFilm } from '../hooks/useOrderFilm'
 import { Spinner } from '../UI/Spinner'
 
-export const FilmInfoPage: React.FC = () => {
+const FilmInfoPage: React.FC = () => {
   const {
     onBuyButtonClick,
     onUserInfoSubmit,
@@ -68,3 +68,5 @@ export const FilmInfoPage: React.FC = () => {
     </section>
   )
 }
+
+export default FilmInfoPage
