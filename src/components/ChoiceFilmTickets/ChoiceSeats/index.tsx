@@ -1,9 +1,8 @@
 import React from 'react'
 
-import { useFetchOrders } from '../../../hooks/queries/useFetchOrders'
-import { useOrderTicketsStore } from '../../../store/orderTickets'
-import { useSeanceStore } from '../../../store/seance'
-import { getReservedSeats } from '../../../utils/getReservedSeats'
+import { useFetchOrders } from '../../../hooks/queries'
+import { useOrderTicketsStore, useSeanceStore } from '../../../store'
+import { getReservedSeats } from '../../../utils'
 import { RowNumbers } from './RowNumbers'
 import { Seat } from './Seat'
 

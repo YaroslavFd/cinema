@@ -1,4 +1,4 @@
-import { Star } from '../UI/Star'
+import { Star } from '../UI'
 
 export const renderStars = (rating: string) => {
   const maxStars = 5

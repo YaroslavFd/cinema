@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useOrderTicketsStore } from '../../store/orderTickets'
+import { useOrderTicketsStore } from '../../store'
 import { TicketsOrder } from '../TicketsOrder'
 import { ChoiceSeats } from './ChoiceSeats'
 import { SeatsInformation } from './SeatsInformation'

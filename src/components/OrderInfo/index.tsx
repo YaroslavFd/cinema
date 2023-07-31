@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useOrderTicketsStore } from '../../store/orderTickets'
+import { useOrderTicketsStore } from '../../store'
 import { ErrorOrderInfo } from './ErrorOrderInfo'
 import { PendingOrderInfo } from './PendingOrderInfo'
 import { SuccessOrderInfo } from './SuccessOrderInfo'

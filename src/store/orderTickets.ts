@@ -1,8 +1,7 @@
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
-import { AgeRatingType } from '../utils/types/Film'
-import { SeanceHallNameType } from '../utils/types/FilmSchedule'
+import { AgeRatingType, SeanceHallNameType } from '../types'
 
 export type InitialTicketInfo = {
   id: string

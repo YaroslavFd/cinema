@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
-import { UserProfile } from '../utils/types/User'
+import { UserProfile } from '../types'
 
 interface UserProfileState {
   profile: UserProfile

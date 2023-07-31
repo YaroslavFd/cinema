@@ -2,7 +2,7 @@ import cn from 'classnames'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { useDropdown } from '../../../../hooks/useDropdown'
+import { useDropdown } from '../../../../hooks'
 
 import { ReactComponent as ProfileUserSvg } from '../../../../assets/profile-user.svg'
 import styles from './styles.module.scss'

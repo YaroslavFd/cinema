@@ -1,10 +1,9 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Button } from '../../UI/Button'
-import { FilmRating } from '../../UI/FilmRating'
-import { convertRatingToRussian, getReleaseYear } from '../../utils/helpers'
-import { Film } from '../../utils/types/Film'
+import { Film } from '../../types'
+import { Button, FilmRating } from '../../UI'
+import { convertRatingToRussian, getReleaseYear } from '../../utils'
 
 import styles from './styles.module.scss'
 

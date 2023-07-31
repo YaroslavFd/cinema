@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useUserProfileStore } from '../../../store/userProfile'
+import { useUserProfileStore } from '../../../store'
 import { LoginButton } from './LoginButton'
 import { ProfileButton } from './ProfileButton'
 

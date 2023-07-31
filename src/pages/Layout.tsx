@@ -1,8 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-import { Header } from '../components/Header'
-import { Spinner } from '../UI/Spinner'
+import { Header } from '../components'
+import { Spinner } from '../UI'
 
 const Layout: React.FC = () => (
   <div className="wrapper">

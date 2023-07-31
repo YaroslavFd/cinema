@@ -1,6 +1,4 @@
-import { FilmScheduleResponce } from '../types/FilmSchedule'
-import { GetFilmResponse } from '../types/GetFilmResponce'
-import { PosterFilmsResponse } from '../types/PosterFilmsResponse'
+import { FilmScheduleResponce, GetFilmResponse, PosterFilmsResponse } from '../../types'
 import { instance } from './instance'
 
 export const PosterFilmsService = {

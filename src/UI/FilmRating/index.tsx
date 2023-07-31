@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { renderStars } from '../../utils/renderStars'
+import { renderStars } from '../../utils'
 
 import styles from './styles.module.scss'
 

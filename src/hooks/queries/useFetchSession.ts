@@ -1,8 +1,8 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query'
 
-import { useUserProfileStore } from '../../store/userProfile'
-import { ProfileService } from '../../utils/api/ProfileService'
-import { SessionResponse } from '../../utils/types/User'
+import { useUserProfileStore } from '../../store'
+import { SessionResponse } from '../../types'
+import { ProfileService } from '../../utils/api'
 
 export const useFetchSession = (options?: UseQueryOptions<SessionResponse>) => {
   const profile = useUserProfileStore((state) => state.profile)

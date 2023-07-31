@@ -1,8 +1,8 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { useOrderTicketsStore } from '../../../../store/orderTickets'
-import { SeancePlaceType } from '../../../../utils/types/FilmSchedule'
+import { useOrderTicketsStore } from '../../../../store'
+import { SeancePlaceType } from '../../../../types'
 
 import styles from './styles.module.scss'
 

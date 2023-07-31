@@ -1,4 +1,4 @@
-import { TicketPayment, TicketPaymentResponse, UserOrdersResponse } from '../types/TicketPayment'
+import { TicketPayment, TicketPaymentResponse, UserOrdersResponse } from '../../types'
 import { instance } from './instance'
 
 export const UserOrdersService = {

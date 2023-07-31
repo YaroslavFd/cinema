@@ -1,4 +1,4 @@
-import { Ticket } from './types/TicketPayment'
+import { Ticket } from '../types'
 
 export const combinePlacesToArray = (tickets: Ticket[]) =>
   tickets.reduce((result: { row: number; column: number }[], ticket) => {

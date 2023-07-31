@@ -2,10 +2,9 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-import { Person, useUserInfoStore } from '../../store/userInfo'
-import { Button } from '../../UI/Button'
-import { Input } from '../../UI/Input'
-import { userInfoScheme } from '../../utils/validationSchemes/userInfoScheme'
+import { Person, useUserInfoStore } from '../../store'
+import { Button, Input } from '../../UI'
+import { userInfoScheme } from '../../utils/validationSchemes'
 
 import styles from './styles.module.scss'
 

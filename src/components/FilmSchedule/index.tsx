@@ -1,10 +1,9 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { Button } from '../../UI/Button'
-import { convertDate } from '../../utils/convertDate'
-import { Film } from '../../utils/types/Film'
-import { FilmSchedule as FilmScheduleType } from '../../utils/types/FilmSchedule'
+import { Film, FilmSchedule as FilmScheduleType } from '../../types'
+import { Button } from '../../UI'
+import { convertDate } from '../../utils'
 import { ScheduleList } from './SheduleList'
 
 import styles from './styles.module.scss'

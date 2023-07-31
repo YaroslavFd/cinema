@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 
-import { UserOrdersService } from '../../utils/api/UserOrdersService'
-import { TicketPayment } from '../../utils/types/TicketPayment'
+import { TicketPayment } from '../../types'
+import { UserOrdersService } from '../../utils/api'
 
 export const usePaymentMutation = () =>
   useMutation({

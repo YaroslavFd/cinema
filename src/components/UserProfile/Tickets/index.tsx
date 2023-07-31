@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { useFetchOrders } from '../../../hooks/queries/useFetchOrders'
-import { Spinner } from '../../../UI/Spinner'
+import { useFetchOrders } from '../../../hooks/queries'
+import { Spinner } from '../../../UI'
 import { ContentError } from '../../ContentError'
 import { Ticket } from './Ticket'
 

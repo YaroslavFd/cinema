@@ -1,8 +1,8 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query'
 
-import { useUserProfileStore } from '../../store/userProfile'
-import { UserOrdersService } from '../../utils/api/UserOrdersService'
-import { UserOrdersResponse } from '../../utils/types/TicketPayment'
+import { useUserProfileStore } from '../../store'
+import { UserOrdersResponse } from '../../types'
+import { UserOrdersService } from '../../utils/api'
 
 export const useFetchOrders = (
   orderPaidStatus?: boolean,

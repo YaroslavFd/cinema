@@ -1,4 +1,4 @@
-import { Seat } from '../store/orderTickets'
+import { Seat } from '../store'
 
 interface RowSeats {
   row: number

@@ -1,7 +1,7 @@
 import React from 'react'
+import { Header, NotFound } from '../components'
 
-import { Header } from '../components/Header'
-import { NotFound } from '../components/NotFound'
+
 
 const NotFoundPage: React.FC = () => (
   <div className="wrapper">

@@ -1,9 +1,8 @@
 import React from 'react'
 
-import { useFetchFilms } from '../../../../hooks/queries/useFetchFilms'
-import { combinePlacesToArray } from '../../../../utils/combinePlacesToArray'
-import { convertDate } from '../../../../utils/convertDate'
-import { Ticket as TicketType } from '../../../../utils/types/TicketPayment'
+import { useFetchFilms } from '../../../../hooks/queries'
+import { Ticket as TicketType } from '../../../../types'
+import { combinePlacesToArray, convertDate } from '../../../../utils'
 import { SelectedSeats } from '../../../TicketsOrder/SelectedSeats.tsx'
 
 import styles from './styles.module.scss'

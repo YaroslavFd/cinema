@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useFetchFilms } from '../../hooks/queries/useFetchFilms'
+import { useFetchFilms } from '../../hooks/queries'
 import { ContentError } from '../ContentError'
 import { FilmCard } from '../FilmCard'
 import { Skeleton } from '../FilmCard/Skeleton'

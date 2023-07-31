@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { CreateOtp, OtpResponse } from '../types/Otp'
+import { CreateOtp, OtpResponse } from '../../types'
 import { authInstance } from './instance'
 
 export const AuthService = {

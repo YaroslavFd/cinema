@@ -2,7 +2,7 @@ import cn from 'classnames'
 import React from 'react'
 import { createPortal } from 'react-dom'
 
-import { useTimedBox } from '../../hooks/useTimedBox'
+import { useTimedBox } from '../../hooks'
 
 import styles from './styles.module.scss'
 

@@ -1,4 +1,4 @@
-import { TicketOrder } from './types/TicketPayment'
+import { TicketOrder } from '../types'
 
 type reservedSeatType = {
   row: number

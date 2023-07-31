@@ -1,8 +1,8 @@
 import React from 'react'
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 
-import { Input } from '../../../UI/Input'
-import { isValidPhoneNumber } from '../../../utils/helpers'
+import { Input } from '../../../UI'
+import { isValidPhoneNumber } from '../../../utils'
 
 interface PhoneInputProps {
   register: UseFormRegister<FieldValues>

@@ -1,6 +1,5 @@
-import { useOrderTicketsStore } from '../store/orderTickets'
-import { useUserInfoStore } from '../store/userInfo'
-import { DebitCard } from '../utils/types/DebitCard'
+import { useOrderTicketsStore, useUserInfoStore } from '../store'
+import { DebitCard } from '../types'
 import { usePaymentMutation } from './queries/usePaymentMutation'
 import { useModal } from './useModal'
 

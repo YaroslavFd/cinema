@@ -1,8 +1,8 @@
 import React from 'react'
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 
-import { Input } from '../../../UI/Input'
-import { isValidOtpCode } from '../../../utils/helpers'
+import { Input } from '../../../UI'
+import { isValidOtpCode } from '../../../utils'
 
 interface SmsCodeInputProps {
   register: UseFormRegister<FieldValues>

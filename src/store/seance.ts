@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
-import { FilmSeance } from '../utils/types/FilmSchedule'
+import { FilmSeance } from '../types'
 
 interface SeanceState {
   seance: FilmSeance | null

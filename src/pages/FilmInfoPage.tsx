@@ -1,18 +1,19 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
-import { CardInfoForm } from '../components/CardInfoForm'
-import { ChoiceFilmTickets } from '../components/ChoiceFilmTickets'
-import { ContentError } from '../components/ContentError'
-import { FilmInfo } from '../components/FilmInfo'
-import { FilmSchedule } from '../components/FilmSchedule'
-import { Modal } from '../components/Modal'
-import { OrderInfo } from '../components/OrderInfo'
-import { UserInfoForm } from '../components/UserInfoForm'
-import { useFetchFilm } from '../hooks/queries/useFetchFilm'
-import { useFetchFilmShedule } from '../hooks/queries/useFetchFilmShedule'
-import { useOrderFilm } from '../hooks/useOrderFilm'
-import { Spinner } from '../UI/Spinner'
+import {
+  CardInfoForm,
+  ChoiceFilmTickets,
+  ContentError,
+  FilmInfo,
+  FilmSchedule,
+  Modal,
+  OrderInfo,
+  UserInfoForm
+} from '../components'
+import { useOrderFilm } from '../hooks'
+import { useFetchFilm, useFetchFilmShedule } from '../hooks/queries'
+import { Spinner } from '../UI'
 
 const FilmInfoPage: React.FC = () => {
   const {

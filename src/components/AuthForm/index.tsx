@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useAuthForm } from '../../hooks/useAuthForm'
+import { useAuthForm } from '../../hooks'
 import { FloatingBox } from '../FloatingBox'
 import { PhoneInput } from './Inputs/PhoneInput'
 import { SmsCodeInput } from './Inputs/SmsCodeInput'

@@ -1,6 +1,5 @@
-import { usersInstance } from '../api/instance'
-import { SignInInfo, SignInResponse } from '../types/SignIn'
-import { SessionResponse } from '../types/User'
+import { SessionResponse, SignInInfo, SignInResponse } from '../../types'
+import { usersInstance } from './instance'
 
 export const ProfileService = {
   signIn: async (signInInfo: SignInInfo): Promise<SignInResponse> => {

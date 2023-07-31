@@ -1,8 +1,8 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 
-import { UserProfile } from '../components/UserProfile'
-import { useUserProfileStore } from '../store/userProfile'
+import { UserProfile } from '../components'
+import { useUserProfileStore } from '../store'
 
 const UserProfilePage: React.FC = () => {
   const isAuth = useUserProfileStore((state) => state.isAuth)

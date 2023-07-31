@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Seat } from '../../../store/orderTickets'
-import { groupSeatsByRow } from '../../../utils/groupSeatsByRow'
+import { Seat } from '../../../store'
+import { groupSeatsByRow } from '../../../utils'
 
 import styles from './styles.module.scss'
 

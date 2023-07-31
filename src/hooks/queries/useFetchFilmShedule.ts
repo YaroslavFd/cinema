@@ -1,7 +1,7 @@
 import { useQuery, UseQueryOptions } from '@tanstack/react-query'
 
-import { PosterFilmsService } from '../../utils/api/PosterFilmsService'
-import { FilmScheduleResponce } from '../../utils/types/FilmSchedule'
+import { FilmScheduleResponce } from '../../types'
+import { PosterFilmsService } from '../../utils/api'
 
 export const useFetchFilmShedule = (id: string, options?: UseQueryOptions<FilmScheduleResponce>) =>
   useQuery<FilmScheduleResponce>(

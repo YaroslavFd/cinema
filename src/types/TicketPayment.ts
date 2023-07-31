@@ -1,5 +1,4 @@
-import { Seat } from '../../store/orderTickets'
-import { Person } from '../../store/userInfo'
+import { Person, Seat } from '../store'
 import { DebitCard } from './DebitCard'
 import { FilmSeanceTime } from './FilmSchedule'
 

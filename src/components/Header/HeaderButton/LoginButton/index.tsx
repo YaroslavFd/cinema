@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { Button } from '../../../../UI/Button'
+import { Button } from '../../../../UI'
 
 import styles from './styles.module.scss'
 

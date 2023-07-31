@@ -1,10 +1,8 @@
 import cn from 'classnames'
 import React from 'react'
 
-import { useOrderTicketsStore } from '../../../store/orderTickets'
-import { useSeanceStore } from '../../../store/seance'
-import { Film } from '../../../utils/types/Film'
-import { FilmSchedule, FilmSeance } from '../../../utils/types/FilmSchedule'
+import { useOrderTicketsStore, useSeanceStore } from '../../../store'
+import { Film, FilmSchedule, FilmSeance } from '../../../types'
 
 import styles from './styles.module.scss'
 

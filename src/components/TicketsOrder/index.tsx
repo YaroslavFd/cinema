@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { InitialTicketInfo, useOrderTicketsStore } from '../../store/orderTickets'
-import { Button } from '../../UI/Button'
-import { convertHallName } from '../../utils/helpers'
+import { InitialTicketInfo, useOrderTicketsStore } from '../../store'
+import { Button } from '../../UI'
+import { convertHallName } from '../../utils'
 import { InfoList } from './InfoList'
 
 import styles from './styles.module.scss'

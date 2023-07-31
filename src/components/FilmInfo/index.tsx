@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { FilmRating } from '../../UI/FilmRating'
-import { convertRatingToRussian, getReleaseYear } from '../../utils/helpers'
-import { Film } from '../../utils/types/Film'
+import { Film } from '../../types'
+import { FilmRating } from '../../UI'
+import { convertRatingToRussian, getReleaseYear } from '../../utils'
 import { BoxImg } from './BoxImg'
 import { Description } from './Description'
 import { Directors } from './Directors'

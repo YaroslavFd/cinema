@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Spinner } from '../../UI/Spinner'
+import { Spinner } from '../../UI'
 
 import styles from './styles.module.scss'
 

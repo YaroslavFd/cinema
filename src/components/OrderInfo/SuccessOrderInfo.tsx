@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { InitialTicketInfo } from '../../store/orderTickets'
+import { InitialTicketInfo } from '../../store'
 import { InfoList } from '../TicketsOrder/InfoList'
 
 import successIcon from '../../assets/success-icon.svg'

@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 
-import { ProfileService } from '../../utils/api/ProfileService'
-import { SignInInfo } from '../../utils/types/SignIn'
+import { SignInInfo } from '../../types'
+import { ProfileService } from '../../utils/api'
 
 export const useSignInMutation = () =>
   useMutation((signInInfo: SignInInfo) => ProfileService.signIn(signInInfo), {})
