@@ -10,7 +10,7 @@ export const AuthService = {
   },
 
   getOtps: async (): Promise<string> => {
-    const response = await axios.get('https://shift-backend.onrender.com/otps')
+    const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/otps`)
     return response.data
   }
 }

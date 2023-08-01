@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const instance = axios.create({
-  baseURL: 'https://shift-backend.onrender.com/cinema',
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}/cinema`,
   headers: {
     'Content-type': 'application/json'
   }
@@ -9,10 +9,10 @@ export const instance = axios.create({
 
 export const authInstance = axios.create({
   ...instance.defaults,
-  baseURL: 'https://shift-backend.onrender.com/auth'
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}/auth`
 })
 
 export const usersInstance = axios.create({
   ...instance.defaults,
-  baseURL: 'https://shift-backend.onrender.com/users'
+  baseURL: `${process.env.REACT_APP_BACKEND_URL}/users`
 })

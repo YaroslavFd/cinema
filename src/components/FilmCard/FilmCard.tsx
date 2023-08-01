@@ -28,7 +28,7 @@ export const FilmCard: React.FC<IFilmCardProps> = ({ film }) => {
       </div>
       <div
         className={styles.boxImg}
-        style={{ backgroundImage: `url('https://shift-backend.onrender.com${img}')` }}
+        style={{ backgroundImage: `url('${process.env.REACT_APP_BACKEND_URL}${img}')` }}
       >
         {convertRatingToRussian(ageRating) !== 'Error' && (
           <div className={styles.ageRating}>{convertRatingToRussian(ageRating)}</div>

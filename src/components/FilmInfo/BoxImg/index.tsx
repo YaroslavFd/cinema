@@ -13,7 +13,7 @@ export const BoxImg: React.FC<BoxImgProps> = ({ isMobile = false, img }) => (
     <div
       className={styles.img}
       style={{
-        backgroundImage: `url('https://shift-backend.onrender.com${img}')`
+        backgroundImage: `url('${process.env.REACT_APP_BACKEND_URL}${img}')`
       }}
     ></div>
     <div className={styles.date}>
